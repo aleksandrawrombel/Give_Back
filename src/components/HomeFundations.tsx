@@ -14,7 +14,7 @@ const HomeFundations: React.FC = () => {
         W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się
         zajmują, komu pomagają i czego potrzebują.
       </p>
-      <Pagination totalPages={3} />
+      <Pagination />
     </>
   );
 };
