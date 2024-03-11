@@ -94,4 +94,8 @@
   font-weight: 300;
   margin-top: 35px;
   padding: 5px;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 }

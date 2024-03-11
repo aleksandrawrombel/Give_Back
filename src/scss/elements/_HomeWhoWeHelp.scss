@@ -1,0 +1,27 @@
+.who_we_help {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 70px;
+  margin-left: 278px;
+  margin-right: 287px;
+  height: 862px;
+
+  .who_we_help_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h4 {
+      font-size: 38px;
+      letter-spacing: -0.76px;
+      color: $color-gray-darker;
+    }
+
+    img {
+      margin-top: 25px;
+    }
+  }
+}

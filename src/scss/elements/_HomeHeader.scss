@@ -28,9 +28,12 @@ header {
       text-decoration: none;
       color: $color-gray;
       padding: 9px 10px;
+      border: solid 1px transparent;
+      transition: border-color 0.3s ease-in-out;
 
       &:hover {
-        border: solid 1px $color-yellow;
+        border-color: $color-yellow;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         width: 90px;
         height: 36px;
       }
@@ -49,9 +52,12 @@ header {
       text-decoration: none;
       color: $color-gray-darker;
       padding: 9px 10px;
+      border: solid 1px transparent;
+      transition: border-color 0.3s ease-in-out;
 
       &:hover {
-        border: solid 1px $color-gray-darker;
+        border-color: $color-gray-darker;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         width: 80px;
         height: 42px;
       }
@@ -109,5 +115,9 @@ header {
     justify-content: center;
     align-items: center;
     font-weight: 300;
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
   }
 }

@@ -1,0 +1,45 @@
+.who_we_help_buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 69px;
+  gap: 150px;
+
+  .who_we_help_button {
+    width: 208px;
+    height: 79px;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    border: solid 1px transparent;
+    transition: border-color 0.3s ease-in-out;
+  }
+
+  .fundation_button {
+    border-color: $color-gray-darker;
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .organization_button:hover {
+    border-color: $color-gray-darker;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .locals_button:hover {
+    border-color: $color-gray-darker;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.fundation_text {
+  font-size: 22px;
+  color: $color-gray-darker;
+  margin-top: 80px;
+  width: 640px;
+  height: 84px;
+  text-align: center;
+}
