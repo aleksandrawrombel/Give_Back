@@ -1,0 +1,48 @@
+.about_us {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 935px;
+  margin-top: 90px;
+  background-color: $color-cream;
+}
+
+.about_us_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 350px 150px;
+
+  h3 {
+    font-size: 38px;
+    color: $color-gray-darker;
+    letter-spacing: -0.76px;
+    margin-bottom: 33px;
+  }
+
+  .about_us_decoration {
+    margin-bottom: 62px;
+  }
+
+  p {
+    font-size: 30px;
+    color: $color-gray-darker;
+    letter-spacing: -0.6px;
+    text-align: center;
+    line-height: 54px;
+    height: 209px;
+    width: 657px;
+  }
+
+  .about_us_signature {
+    width: 209px;
+    height: 149px;
+    margin-top: 40px;
+    align-self: flex-end;
+  }
+}
+
+.about_us_people {
+  width: 942px;
+}
