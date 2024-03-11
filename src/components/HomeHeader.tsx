@@ -26,7 +26,7 @@ const HomeHeader = () => {
             <li>
               <ScrollLink
                 className="nav_link"
-                to="section1"
+                to="nav_registration"
                 smooth={true}
                 duration={500}
                 spy={true}
@@ -39,7 +39,7 @@ const HomeHeader = () => {
             <li>
               <ScrollLink
                 className="nav_link"
-                to="section1"
+                to="home_simple_steps"
                 smooth={true}
                 duration={500}
                 spy={true}
@@ -97,8 +97,12 @@ const HomeHeader = () => {
           <img src={heroDecoration} alt="text decoration" className="hero_decoration" />
         </section>
         <section className="hero_buttons">
-        <Link to="/logowanie" className="hero_button">Oddaj <span>rzeczy</span></Link>
-        <Link to="/logowanie" className="hero_button">Zorganizuj <span>zbiórkę</span></Link>
+          <Link to="/logowanie" className="hero_button">
+            Oddaj <span>rzeczy</span>
+          </Link>
+          <Link to="/logowanie" className="hero_button">
+            Zorganizuj <span>zbiórkę</span>
+          </Link>
         </section>
       </div>
     </header>

@@ -1,0 +1,97 @@
+.home_simple_steps {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 624px;
+}
+
+.home_simple_steps_text {
+  font-size: 38px;
+  color: $color-gray-darker;
+  letter-spacing: -0.76px;
+  padding: 50px;
+}
+
+.simple_steps_decoration {
+  margin-top: -20px;
+}
+
+.simple_steps_menu {
+  height: 325px;
+  width: 100%;
+  background-color: $color-cream;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 172px;
+  }
+}
+
+.simple_steps_icon {
+  width: 83px;
+  height: 83px;
+}
+
+.simple_steps_name {
+  font-size: 18px;
+  color: $color-gray-darker;
+  position: relative;
+  padding: 10px;
+  text-align: center;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 25%;
+    width: 80px;
+    height: 1px;
+    background-color: $color-gray;
+  }
+}
+
+.bag_name::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 10%;
+  width: 80px;
+  height: 1px;
+  background-color: $color-gray;
+}
+
+.simple_steps_text {
+  font-size: 16px;
+  color: $color-gray-darker;
+  text-align: center;
+  padding: 10px 1px;
+}
+
+.simple_steps_button {
+  text-decoration: none;
+  border: solid 1px $color-gray-darker;
+  width: 310px;
+  height: 120px;
+  background: transparent;
+  text-transform: uppercase;
+  font-family: $font-base;
+  font-size: 36px;
+  color: $color-gray-darker;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 300;
+  margin-top: 35px;
+  padding: 5px;
+}
