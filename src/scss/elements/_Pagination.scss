@@ -1,11 +1,81 @@
 .pagination_buttons {
   display: flex;
-  gap: 10px;
+  gap: 15px;
+  margin-top: 60px;
 }
 
 .pagination_button {
-  border: none;
+  border: solid 1px transparent;
   background: transparent;
   font-size: 18px;
   color: $color-gray-darker;
+  transition: border-color 0.3s ease-in-out;
+  padding: 13px 15px;
+  font-family: $font-base;
+
+  &:hover {
+    border-color: $color-gray-darker;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.current_page_button {
+  background: transparent;
+  padding: 13px 15px;
+  border: solid 1px $color-gray-darker;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: $font-base;
+}
+
+// fundations
+
+.home_fundations_pagination {
+  width: 1344px;
+  margin-top: 66px;
+}
+
+.fundation,
+.mission,
+.items {
+  font-family: $font-alt;
+  font-weight: 300;
+  color: $color-gray-darker;
+}
+
+.fundation {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.mission,
+.items {
+  font-size: 18px;
+}
+
+.first_pagination_page_articles,
+.second_pagination_page_articles,
+.third_pagination_page_articles {
+  display: flex;
+  flex-direction: column;
+  padding: 31px;
+  position: relative;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .items {
+      margin-top: -10px;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 1344px;
+    height: 1px;
+    background-color: $color-gray;
+  }
 }

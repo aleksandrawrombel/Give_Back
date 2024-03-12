@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Pagination from './Pagination';
+import HomeFundationsPagination from './HomeFundationsPagination';
 
 const HomeFundations: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const HomeFundations: React.FC = () => {
         W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się
         zajmują, komu pomagają i czego potrzebują.
       </p>
-      <Pagination />
+      <HomeFundationsPagination />
     </>
   );
 };
