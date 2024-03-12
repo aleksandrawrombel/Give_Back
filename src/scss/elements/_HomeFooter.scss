@@ -1,0 +1,22 @@
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copyright {
+  font-size: 18px;
+  color: $color-gray-darker;
+  margin-left: 850px;
+}
+
+.footer_icons {
+  margin-right: 200px;
+}
+
+.facebook_icon,
+.instagram_icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+}
