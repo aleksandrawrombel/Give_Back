@@ -42,6 +42,11 @@
     font-size: 24px;
     border: solid 1px transparent;
     transition: border-color 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-color: $color-gray-darker;
+    }
   }
 
   .fundation_button {
