@@ -78,7 +78,7 @@ const HomeHeader = () => {
             <li>
               <ScrollLink
                 className="nav_link"
-                to="section1"
+                to="home_contact"
                 smooth={true}
                 duration={500}
                 spy={true}
