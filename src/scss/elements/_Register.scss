@@ -1,14 +1,14 @@
-.log_in_header {
+.register_header {
   display: flex;
   justify-content: flex-end;
 }
 
-.log_in_link {
+.register_link {
   text-decoration: none;
   color: $color-gray-darker;
 }
 
-.log_in {
+.register {
   height: 850px;
   display: flex;
   flex-direction: column;
@@ -21,24 +21,25 @@
     letter-spacing: -0.8px;
   }
 
-  .log_in_decoration {
+  .register_decoration {
     margin-top: 39px;
   }
 }
 
-.log_in_form {
+.register_form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 67px;
 }
-.log_in_form_inputs {
+
+.register_form_inputs {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   width: 385px;
-  height: 235px;
+  height: 328px;
   background-color: $color-cream;
   padding: 30px 60px;
 
@@ -55,12 +56,12 @@
     padding: 3px;
   }
 
-  .log_in_error {
+  register_error {
     margin-top: -15px;
   }
 }
 
-.log_in_buttons {
+.register_buttons {
   width: 504px;
   display: flex;
   justify-content: space-between;
