@@ -1,5 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 
+import supabase from './supabase';
+
 import contactFormBackground from '../assets/contactFormBackground.png';
 import decoration from '../assets/heroDecoration.svg';
 
@@ -9,6 +11,8 @@ const HomeContact = () => {
     email: string;
     message: string;
   }
+
+  //validate form data
 
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -28,39 +32,61 @@ const HomeContact = () => {
     }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    let isCorrect = true;
 
     if (formData.name === '') {
       setNameError('Podane imię jest nieprawidłowe!');
-      console.log(nameError);
+      isCorrect = false;
     } else if (!/^\S+$/.test(formData.name)) {
       setNameError('Imię powinno składać się z jednego słowa!');
-      console.log(nameError);
+      isCorrect = false;
     } else {
       setNameError('');
     }
     if (formData.email === '') {
       setEmailError('Podany email jest nieprawidłowy!');
-      console.log(emailError);
+      isCorrect = false;
     } else if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,}$/.test(formData.email)) {
       setEmailError('Podany email jest nieprawidłowy!');
-      console.log(emailError);
+      isCorrect = false;
     } else {
       setEmailError('');
     }
     if (formData.message === '') {
       setMessageError('Wiadomość musi mieć conajmniej 120 znaków!');
-      console.log(messageError);
+      isCorrect = false;
     } else if (formData.message.length < 120) {
       setMessageError('Wiadomość musi mieć conajmniej 120 znaków!');
-      console.log(messageError);
+      isCorrect = false;
     } else {
       setMessageError('');
     }
 
-    console.log(formData);
+    if (isCorrect) {
+      await insertFormData();
+    }
   };
+
+  //insert form data to supabase
+
+  const [successMessage, setSuccessMessage] = useState('');
+
+  async function insertFormData() {
+    try {
+      const { data } = await supabase
+        .from('ContactUs')
+        .insert({ name: formData.name, email: formData.email, body: formData.message });
+
+      setSuccessMessage('Wiadomość została wysłana! Wkrótce się skontaktujemy!');
+      setFormData({ name: '', email: '', message: '' });
+      console.log('contact form data inserted correctly');
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <section className="home_contact">
@@ -70,6 +96,7 @@ const HomeContact = () => {
       <div className="form_section">
         <p>Skontaktuj się z nami</p>
         <img src={decoration} alt="text decoration" className="form_decoration" />
+        {successMessage && <span className="success_message">{successMessage}</span>}
         <form className="contact_form" onSubmit={handleSubmit} noValidate>
           <div className="name_email_form">
             <div className="name_form">
