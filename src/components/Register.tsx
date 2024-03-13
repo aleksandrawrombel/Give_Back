@@ -1,13 +1,68 @@
-import React from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 
 import decoration from '../assets/heroDecoration.svg';
 
 const Register = () => {
-    return (
-        <>
-        <header className="landing_page_container register_header">
+  interface RegisterData {
+    email: string;
+    password: string;
+    password2: string;
+  }
+
+  //validate registration form
+
+  const [registerData, setregisterData] = useState<RegisterData>({
+    email: '',
+    password: '',
+    password2: '',
+  });
+
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [password2Error, setPassword2Error] = useState('');
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setregisterData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (registerData.email === '') {
+      setEmailError('Podany email jest nieprawidłowy!');
+    } else if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,}$/.test(registerData.email)) {
+      setEmailError('Podany email jest nieprawidłowy!');
+    } else {
+      setEmailError('');
+    }
+
+    if (registerData.password === '') {
+      setPasswordError('Podane hasło jest za krótkie!');
+    } else if (registerData.password.length < 6) {
+      setPasswordError('Podane hasło jest za krótkie!');
+    } else {
+      setPasswordError('');
+    }
+
+    if (registerData.password !== registerData.password2) {
+      setPassword2Error('Podane hasła nie są takie same!');
+    } else {
+      setPassword2Error('');
+    }
+
+    console.log(registerData);
+  };
+
+  return (
+    <>
+      <header className="landing_page_container register_header">
         <div className="header_nav">
           <nav>
             <ul className="nav_registration">
@@ -101,56 +156,54 @@ const Register = () => {
         </div>
       </header>
       <section className="register">
-      <h1>Załóż konto</h1>
-      <img src={decoration} alt="text decoration" className="register_decoration" />
-      <form className="register_form" noValidate>
-        <div className="register_form_inputs">
-          <label className="register_email_label">Email</label>
-          <input
-            className="register_email"
-            type="text"
-            name="email"
-            // value={logInData.email}
-            required
-            // onChange={handleInputChange}
-            // style={{ borderColor: emailError ? 'tomato' : 'black' }}
-          ></input>
-          {/* {emailError && <span className="validation_error log_in_error">{emailError}</span>} */}
-          <label className="register_password_label">Hasło</label>
-          <input
-            className="register_password"
-            type="password"
-            name="password"
-            // value={logInData.password}
-            required
-            // onChange={handleInputChange}
-            // style={{ borderColor: passwordError ? 'tomato' : 'black' }}
-          ></input>
-          {/* {passwordError && <span className="validation_error log_in_error">{passwordError}</span>} */}
-          <label className="register_password_label">Powtórz hasło</label>
-          <input
-            className="register_password"
-            type="password"
-            name="password"
-            // value={logInData.password}
-            required
-            // onChange={handleInputChange}
-            // style={{ borderColor: passwordError ? 'tomato' : 'black' }}
-          ></input>
-          {/* {passwordError && <span className="validation_error log_in_error">{passwordError}</span>} */}
-        </div>
-        <div className="register_buttons">
-        <button>Zaloguj się</button>
-          <button>
-            <Link to="/rejestracja" className="register_link">
-              Załóż konto
-            </Link>
-          </button>
-        </div>
-      </form>
-    </section>
-  </>
-    )
-}
+        <h1>Załóż konto</h1>
+        <img src={decoration} alt="text decoration" className="register_decoration" />
+        <form className="register_form" noValidate onSubmit={handleSubmit}>
+          <div className="register_form_inputs">
+            <label className="register_email_label">Email</label>
+            <input
+              className="register_email"
+              type="text"
+              name="email"
+              value={registerData.email}
+              required
+              onChange={handleInputChange}
+              style={{ borderColor: emailError ? 'tomato' : 'black' }}
+            ></input>
+            {emailError && <span className="validation_error register_error">{emailError}</span>}
+            <label className="register_password_label">Hasło</label>
+            <input
+              className="register_password"
+              type="password"
+              name="password"
+              value={registerData.password}
+              required
+              onChange={handleInputChange}
+              style={{ borderColor: passwordError ? 'tomato' : 'black' }}
+            ></input>
+            {passwordError && <span className="validation_error register_error">{passwordError}</span>}
+            <label className="register_password_label">Powtórz hasło</label>
+            <input
+              className="register_password"
+              type="password"
+              name="password2"
+              value={registerData.password2}
+              required
+              onChange={handleInputChange}
+              style={{ borderColor: password2Error ? 'tomato' : 'black' }}
+            ></input>
+            {password2Error && <span className="validation_error register_error">{password2Error}</span>}
+          </div>
+          <div className="register_buttons">
+            <button><Link to="/logowanie" className="register_link">
+              Zaloguj się
+            </Link></button>
+            <button>Załóż konto</button>
+          </div>
+        </form>
+      </section>
+    </>
+  );
+};
 
 export default Register;
