@@ -32,62 +32,60 @@
   justify-content: center;
   align-items: center;
   margin-top: 67px;
+}
+.log_in_form_inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 385px;
+  height: 235px;
+  background-color: $color-cream;
+  padding: 30px 60px;
 
-  .log_in_form_inputs {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 385px;
-    height: 235px;
-    background-color: $color-cream;
-    padding: 30px 60px;
-    gap: 20px;
-
-    label {
-      font-size: 16px;
-      font-weight: 600;
-      color: $color-gray-darker;
-    }
-
-    input {
-      border: none;
-      background-color: transparent;
-      border-bottom: solid 1px $color-gray-darker;
-      padding: 3px;
-    }
+  label {
+    font-size: 16px;
+    font-weight: 600;
+    color: $color-gray-darker;
   }
 
-  .log_in_buttons {
-    width: 504px;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 53px;
+  input {
+    border: none;
+    background-color: transparent;
+    border-bottom: solid 1px $color-gray-darker;
+    padding: 3px;
+  }
 
-    button {
-      text-decoration: none;
-      color: $color-gray-darker;
-      padding: 9px 10px;
-      border: solid 1px transparent;
-      transition: border-color 0.3s ease-in-out;
-      width: 117px;
-      height: 50px;
-      background-color: transparent;
-
-      &:hover {
-        border-color: $color-gray-darker;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        width: 117px;
-        height: 50px;
-      }
-
-      .register_link {
-        text-decoration: none;
-        color: $color-gray-darker;
-      }
-    }
+  .log_in_error {
+    margin-top: -15px;
   }
 }
 
-.log_in_error {
-  margin-top: -20px;
+.log_in_buttons {
+  width: 504px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 53px;
+
+  button {
+    text-decoration: none;
+    color: $color-gray-darker;
+    padding: 9px 10px;
+    border: solid 1px transparent;
+    transition: border-color 0.3s ease-in-out;
+    width: 117px;
+    height: 50px;
+    background-color: transparent;
+
+    &:hover {
+      border-color: $color-gray-darker;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 117px;
+      height: 50px;
+    }
+
+    .register_link {
+      text-decoration: none;
+      color: $color-gray-darker;
+    }
+  }
 }
