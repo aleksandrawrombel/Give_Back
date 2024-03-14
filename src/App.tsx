@@ -5,6 +5,7 @@ import Home from './components/Home';
 import LogIn from './components/LogIn';
 import Register from './components/Register';
 import LogOut from './components/LogOut.tsx';
+import Form from './components/Form.tsx';
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
         <Route path="/logowanie" element={<LogIn />} />
         <Route path="/rejestracja" element={<Register />} />
         <Route path="/wylogowano" element={<LogOut />} />
-        <Route path="/oddaj-rzeczy" />
+        <Route path="/oddaj-rzeczy" element={<Form />} />
       </Routes>
     </BrowserRouter>
   );

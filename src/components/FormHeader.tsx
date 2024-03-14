@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import supabase from './supabase';
 
-import heroImage from '../assets/heroImage.png';
 import heroDecoration from '../assets/heroDecoration.svg';
+import formHeroImage from '../assets/FormHeroImage.png';
 
-const HomeHeader = () => {
+const FormHeader = () => {
   //check logged in user
+
   const [loggedIn, setloggedIn] = useState(false);
   const [loggedInUserEmail, setLoggedInUserEmail] = useState('');
 
@@ -49,14 +50,14 @@ const HomeHeader = () => {
   };
 
   return (
-    <header className="landing_page_container">
-      <div className="hero_image">
-        <img src={heroImage} alt="box with overflowing items" />
+    <header className="landing_page_container form_header">
+      <div className="form_hero_image">
+        <img src={formHeroImage} alt="green jumper" />
       </div>
-      <div className="header_nav">
+      <div className="form_header_nav">
         <nav>
           {loggedIn === false && (
-            <ul className="nav_registration">
+            <ul className="form_nav_registration">
               <li>
                 <Link to="/logowanie">Zaloguj</Link>
               </li>
@@ -66,7 +67,7 @@ const HomeHeader = () => {
             </ul>
           )}
           {loggedIn === true && (
-            <ul className="nav_registration">
+            <ul className="form_nav_registration">
               <li>
                 <p className="logged_in_user_email">{`Cześć, ${loggedInUserEmail}!`}</p>
               </li>
@@ -80,10 +81,10 @@ const HomeHeader = () => {
               </li>
             </ul>
           )}
-          <ul className="nav_menu">
+          <ul className="form_nav_menu">
             <li>
               <ScrollLink
-                className="nav_link"
+                className="form_nav_link"
                 to="nav_registration"
                 smooth={true}
                 duration={500}
@@ -91,12 +92,14 @@ const HomeHeader = () => {
                 exact="true"
                 offset={-70}
               >
-                Start
+                <Link to="/" className="form_link">
+                  Start
+                </Link>
               </ScrollLink>
             </li>
             <li>
               <ScrollLink
-                className="nav_link"
+                className="form_nav_link"
                 to="home_simple_steps"
                 smooth={true}
                 duration={500}
@@ -104,12 +107,14 @@ const HomeHeader = () => {
                 exact="true"
                 offset={-70}
               >
-                O co chodzi?
+                <Link to="/" className="form_link">
+                  O co chodzi?
+                </Link>
               </ScrollLink>
             </li>
             <li>
               <ScrollLink
-                className="nav_link"
+                className="form_nav_link"
                 to="about_us"
                 smooth={true}
                 duration={500}
@@ -117,12 +122,14 @@ const HomeHeader = () => {
                 exact="true"
                 offset={-70}
               >
-                O nas
+                <Link to="/" className="form_link">
+                  O nas{' '}
+                </Link>
               </ScrollLink>
             </li>
             <li>
               <ScrollLink
-                className="nav_link"
+                className="form_nav_link"
                 to="who_we_help"
                 smooth={true}
                 duration={500}
@@ -130,12 +137,14 @@ const HomeHeader = () => {
                 exact="true"
                 offset={-70}
               >
-                Fundacja i organizacje
+                <Link to="/" className="form_link">
+                  Fundacja i organizacje
+                </Link>
               </ScrollLink>
             </li>
             <li>
               <ScrollLink
-                className="nav_link"
+                className="form_nav_link"
                 to="home_contact"
                 smooth={true}
                 duration={500}
@@ -143,40 +152,16 @@ const HomeHeader = () => {
                 exact="true"
                 offset={-70}
               >
-                Kontakt
+                <Link to="/" className="form_link">
+                  Kontakt
+                </Link>
               </ScrollLink>
             </li>
           </ul>
         </nav>
-        <section className="hero_text">
-          <h1>
-            Zacznij pomagać! <span>Oddaj niechciane rzeczy w zaufane ręce</span>
-          </h1>
-          <img src={heroDecoration} alt="text decoration" className="hero_decoration" />
-        </section>
-        {loggedIn === false && (
-          <section className="hero_buttons">
-            <Link to="/logowanie" className="hero_button">
-              Oddaj <span>rzeczy</span>
-            </Link>
-            <Link to="/logowanie" className="hero_button">
-              Zorganizuj <span>zbiórkę</span>
-            </Link>
-          </section>
-        )}
-        {loggedIn === true && (
-          <section className="hero_buttons">
-            <Link to="/oddaj-rzeczy" className="hero_button">
-              Oddaj <span>rzeczy</span>
-            </Link>
-            <Link to="/oddaj-rzeczy" className="hero_button">
-              Zorganizuj <span>zbiórkę</span>
-            </Link>
-          </section>
-        )}
       </div>
     </header>
   );
 };
 
-export default HomeHeader;
+export default FormHeader;
