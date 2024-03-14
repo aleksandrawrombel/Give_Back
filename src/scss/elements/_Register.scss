@@ -90,3 +90,46 @@
     }
   }
 }
+
+.register_success {
+  height: 850px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 40px;
+    color: $color-gray-darker;
+    width: 414px;
+    text-align: center;
+    letter-spacing: -0.8px;
+  }
+
+  .register_success_decoration {
+    margin-top: 39px;
+  }
+
+  button {
+    margin-top: 42px;
+    text-decoration: none;
+    color: $color-gray-darker;
+    border: solid 1px transparent;
+    transition: border-color 0.3s ease-in-out;
+    width: 150px;
+    height: 50px;
+    background-color: transparent;
+
+    &:hover {
+      border-color: $color-gray-darker;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 150px;
+      height: 50px;
+    }
+
+    .home_link {
+      text-decoration: none;
+      color: $color-gray-darker;
+    }
+  }
+}

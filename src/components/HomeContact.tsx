@@ -82,7 +82,6 @@ const HomeContact = () => {
 
       setSuccessMessage('Wiadomość została wysłana! Wkrótce się skontaktujemy!');
       setFormData({ name: '', email: '', message: '' });
-      console.log('contact form data inserted correctly');
     } catch (error) {
       console.log(error);
     }
