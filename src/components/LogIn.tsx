@@ -68,11 +68,13 @@ const LogIn = () => {
         email: email,
         password: password,
       });
-      window.location.href = "http://localhost:5173/"
       if (error) {
         throw error;
+      } else {
+        window.location.href = 'http://localhost:5173/';
       }
     } catch (error) {
+      setPasswordError('Hasło jest nieprawidłowe!');
       console.log(error);
     }
   };
