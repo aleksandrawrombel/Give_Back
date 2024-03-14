@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 
 import decoration from '../assets/heroDecoration.svg';
+import supabase from './supabase';
 
 const LogIn = () => {
   interface LogInData {
@@ -32,23 +33,48 @@ const LogIn = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    let isCorrect = true;
+
     if (logInData.email === '') {
       setEmailError('Podany email jest nieprawidłowy!');
+      isCorrect = false;
     } else if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,}$/.test(logInData.email)) {
       setEmailError('Podany email jest nieprawidłowy!');
+      isCorrect = false;
     } else {
       setEmailError('');
     }
 
     if (logInData.password === '') {
       setPasswordError('Podane hasło jest za krótkie!');
+      isCorrect = false;
     } else if (logInData.password.length < 6) {
       setPasswordError('Podane hasło jest za krótkie!');
+      isCorrect = false;
     } else {
       setPasswordError('');
     }
 
-    console.log(logInData);
+    if (isCorrect) {
+      await handleLogInUser(logInData.email, logInData.password);
+    }
+  };
+
+  //login user using supabase
+
+  const handleLogInUser = async (email: string, password: string) => {
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+      });
+      window.location.href = "http://localhost:5173/"
+      if (error) {
+        throw error;
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

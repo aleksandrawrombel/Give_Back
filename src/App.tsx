@@ -14,6 +14,7 @@ const App = () => {
         <Route path="/logowanie" element={<LogIn />} />
         <Route path="/rejestracja" element={<Register />} />
         <Route path="/wylogowano" element={<LogOut />} />
+        <Route path="/oddaj-rzeczy" />
       </Routes>
     </BrowserRouter>
   );
