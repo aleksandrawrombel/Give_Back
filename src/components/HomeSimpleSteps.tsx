@@ -34,7 +34,9 @@ const HomeSimpleSteps = () => {
           <span className="simple_steps_text">kurier przyjedzie w dogodnym terminie</span>
         </li>
       </ul>
-      <Link to="/logowanie" className="simple_steps_button">oddaj <span>rzeczy</span></Link>
+      <Link to="/oddaj-rzeczy" className="simple_steps_button">
+        oddaj <span>rzeczy</span>
+      </Link>
     </section>
   );
 };

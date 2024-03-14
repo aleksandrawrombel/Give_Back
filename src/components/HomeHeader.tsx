@@ -156,10 +156,10 @@ const HomeHeader = () => {
           <img src={heroDecoration} alt="text decoration" className="hero_decoration" />
         </section>
         <section className="hero_buttons">
-          <Link to="/logowanie" className="hero_button">
+          <Link to="/oddaj-rzeczy" className="hero_button">
             Oddaj <span>rzeczy</span>
           </Link>
-          <Link to="/logowanie" className="hero_button">
+          <Link to="/oddaj-rzeczy" className="hero_button">
             Zorganizuj <span>zbiórkę</span>
           </Link>
         </section>
