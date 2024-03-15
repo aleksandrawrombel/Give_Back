@@ -8,7 +8,6 @@ const FormMain = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const handleClick = (pageNumber: number) => {
     setCurrentPage(pageNumber);
-    console.log(currentPage);
   };
 
   // step one
@@ -22,6 +21,14 @@ const FormMain = () => {
     const { name, checked: isChecked } = e.target;
     setChecked({ ...checked, [name]: isChecked });
   };
+
+  // step two 
+
+  const [bags, setBags] = useState(0);
+  const countBags = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = parseInt(e.target.value);
+    setBags(value);
+  }
 
   return (
     <>
@@ -114,8 +121,8 @@ const FormMain = () => {
                 <form className="form_main_step_two">
                   <p>Liczba 60l worków:</p>
                   <div className="custom_select">
-                    <select>
-                      <option value="0">— wybierz —</option>
+                    <select value={bags} onChange={countBags}>
+                      <option className="option" value="0">— wybierz —</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
