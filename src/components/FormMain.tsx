@@ -99,7 +99,45 @@ const FormMain = () => {
           </section>
         </>
       )}
-      {currentPage === 2 && <h1>page2</h1>}
+      {currentPage === 2 && (
+        <>
+          <section className="form_main_header">
+            <p className="form_main_header_important">Ważne!</p>
+            <p className="form_main_header_text">Wszystkie rzeczy do oddania zapakuj w 60l worki.</p>
+          </section>
+          <section className="form_main">
+            <div className="form_main_background_image">
+              <img src={formMainBackground} alt="teddy bear" />
+              <div className="form_main_step_one">
+                <span className="step_count">Krok 2/4</span>
+                <p className="step_instruction">Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</p>
+                <form className="form_main_step_two">
+                  <p>Liczba 60l worków:</p>
+                  <div className="custom_select">
+                    <select>
+                      <option value="0">— wybierz —</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                </form>
+                <div className="form_main_buttons">
+                  <button className="form_main_step_one_button" onClick={() => handleClick(1)}>
+                    Wstecz
+                  </button>
+                  <button className="form_main_step_one_button" onClick={() => handleClick(3)}>
+                    Dalej
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+      {currentPage === 3 && <h1>page 3</h1>}
     </>
   );
 };

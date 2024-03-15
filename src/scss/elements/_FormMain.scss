@@ -32,7 +32,7 @@
   }
 }
 
-// step one
+//step one
 
 .form_main_step_one {
   display: flex;
@@ -103,5 +103,60 @@
 
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+//step two
+
+.form_main_buttons {
+  display: flex;
+  margin-top: 312px;
+  gap: 48px;
+}
+
+.form_main_step_two {
+  margin-top: 49px;
+  display: flex;
+
+  p {
+    font-size: 24px;
+    font-weight: 300;
+    color: $color-gray-darker;
+    margin-right: 44px;
+    margin-top: 12px;
+  }
+
+  .custom_select {
+    position: relative;
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 300px;
+      height: 49px;
+      background-color: transparent;
+      font-size: 24px;
+      font-weight: 300;
+      color: $color-gray-darker;
+      padding-left: 18px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    &::after,
+    &::before {
+      size: 15px;
+      position: absolute;
+      content: '';
+      right: 20px;
+      pointer-events: none;
+    }
+
+    &::after {
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 15px solid $color-gray-darker;
+      top: 40%;
+    }
   }
 }
