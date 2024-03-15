@@ -159,6 +159,31 @@ const FormHeader = () => {
             </li>
           </ul>
         </nav>
+        <section className="form_header_hero_text">
+          <h1>
+            Oddaj rzeczy, których już nie chcesz <span>POTRZEBUJĄCYM</span>
+          </h1>
+          <img src={heroDecoration} alt="text decoration" className="form_header_hero_decoration" />
+          <h2>Wystarczą 4 proste kroki:</h2>
+          <div className="form_steps">
+            <div className="step_square">
+              <span>1</span>
+              <p>Wybierz rzeczy</p>
+            </div>
+            <div className="step_square">
+              <span>2</span>
+              <p>Spakuj je w worki</p>
+            </div>
+            <div className="step_square">
+              <span>3</span>
+              <p>Wybierz fundację</p>
+            </div>
+            <div className="step_square">
+              <span>4</span>
+              <p>Zamów kuriera</p>
+            </div>
+          </div>
+        </section>
       </div>
     </header>
   );

@@ -1,0 +1,17 @@
+.form_main_header {
+  height: 179px;
+  background-color: $color-yellow;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 142px;
+
+  .form_main_header_important {
+    font-size: 36px;
+    color: black;
+  }
+
+  .form_main_header_text {
+    font-size: 22px;
+    color: $color-gray-darker;
+  }
+}

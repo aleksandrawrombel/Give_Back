@@ -6,7 +6,8 @@
 .form_hero_image {
   height: 853px;
   overflow: hidden;
-} 
+  margin-right: -150px;
+}
 
 .form_header_nav {
   display: flex;
@@ -62,5 +63,71 @@
       text-decoration: none;
       color: $color-gray-darker;
     }
+  }
+}
+
+.form_header_hero_text {
+  justify-self: center;
+  align-self: center;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 38px;
+    color: $color-gray-darker;
+    text-align: center;
+    letter-spacing: -0.76px;
+    line-height: 50px;
+  }
+
+  .form_header_hero_decoration {
+    text-align: center;
+    margin-top: 39px;
+  }
+
+  h2 {
+    font-size: 40px;
+    font-weight: 300;
+    margin-top: 39px;
+    color: $color-gray-darker;
+  }
+}
+
+.form_steps {
+  margin-top: 80px;
+  display: flex;
+}
+
+.step_square {
+  width: 190px;
+  height: 190px;
+  border: solid 0.75px $color-gray-darker;
+  transform: rotate(45deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    transform: rotate(-45deg);
+    font-size: 32px;
+    color: $color-gray-darker;
+    font-weight: 300;
+    margin-right: 80px;
+  }
+
+  p {
+    transform: rotate(-45deg);
+    font-size: 22px;
+    color: $color-gray-darker;
+    font-weight: 300;
+    width: 90px;
+    height: 57px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 40px;
   }
 }
