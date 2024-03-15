@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Link as ScrollLink } from 'react-scroll';
 import supabase from './supabase';
 
 import decoration from '../assets/heroDecoration.svg';
@@ -103,83 +102,32 @@ const Register = () => {
               </li>
             </ul>
             <ul className="nav_menu">
-              <li>
-                <ScrollLink
-                  className="nav_link"
-                  to="nav_registration"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-70}
-                >
-                  <Link to="/" className="register_link">
-                    Start
-                  </Link>
-                </ScrollLink>
-              </li>
-              <li>
-                <ScrollLink
-                  className="nav_link"
-                  to="home_simple_steps"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-70}
-                >
-                  <Link to="/" className="register_link">
-                    {' '}
-                    O co chodzi?{' '}
-                  </Link>
-                </ScrollLink>
-              </li>
-              <li>
-                <ScrollLink
-                  className="nav_link"
-                  to="about_us"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-70}
-                >
-                  <Link to="/" className="register_link">
-                    O nas
-                  </Link>
-                </ScrollLink>
-              </li>
-              <li>
-                <ScrollLink
-                  className="nav_link"
-                  to="who_we_help"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-70}
-                >
-                  <Link to="/" className="register_link">
-                    Fundacja i organizacje
-                  </Link>
-                </ScrollLink>
-              </li>
-              <li>
-                <ScrollLink
-                  className="nav_link"
-                  to="home_contact"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-70}
-                >
-                  <Link to="/" className="register_link">
-                    Kontakt
-                  </Link>
-                </ScrollLink>
-              </li>
-            </ul>
+            <li>
+              <a className="nav_link" href="/#nav_registration">
+                Start
+              </a>
+            </li>
+            <li>
+              <a className="nav_link" href="/#home_simple_steps">
+                O co chodzi?
+              </a>
+            </li>
+            <li>
+              <a className="nav_link" href="/#about_us">
+                O nas
+              </a>
+            </li>
+            <li>
+              <a className="nav_link" href="/#who_we_help">
+                Fundacja i organizacje
+              </a>
+            </li>
+            <li>
+              <a className="nav_link" href="/#home_contact">
+                Kontakt
+              </a>
+            </li>
+          </ul>
           </nav>
         </div>
       </header>

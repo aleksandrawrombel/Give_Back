@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import decoration from '../assets/heroDecoration.svg';
 import tshirtIcon from '../assets/tshirtIcon.png';
@@ -9,7 +8,7 @@ import recycleIcon from '../assets/recycleIcon.png';
 
 const HomeSimpleSteps = () => {
   return (
-    <section className="home_simple_steps">
+    <section className="home_simple_steps" id="home_simple_steps">
       <h2 className="home_simple_steps_text">Wystarczą 4 proste kroki</h2>
       <img src={decoration} alt="text decorartion" className="simple_steps_decoration" />
       <ul className="simple_steps_menu">

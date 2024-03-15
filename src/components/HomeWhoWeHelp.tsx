@@ -14,7 +14,7 @@ const HomeWhoWeHelp = () => {
   };
 
   return (
-    <section className="who_we_help">
+    <section className="who_we_help" id="who_we_help">
       <div className="who_we_help_text">
         <h4>Komu pomagamy?</h4>
         <img src={decoration} alt="text decoration" />

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Link as ScrollLink } from 'react-scroll';
 import supabase from './supabase';
 
 import heroDecoration from '../assets/heroDecoration.svg';
@@ -82,80 +81,30 @@ const FormHeader = () => {
             </ul>
           )}
           <ul className="form_nav_menu">
-            <li>
-              <ScrollLink
-                className="form_nav_link"
-                to="nav_registration"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-70}
-              >
-                <Link to="/" className="form_link">
-                  Start
-                </Link>
-              </ScrollLink>
+              <li>
+              <a className="form_nav_link" href="/#nav_registration">
+                Start
+              </a>
             </li>
             <li>
-              <ScrollLink
-                className="form_nav_link"
-                to="home_simple_steps"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-70}
-              >
-                <Link to="/" className="form_link">
-                  O co chodzi?
-                </Link>
-              </ScrollLink>
+              <a className="form_nav_link" href="/#home_simple_steps">
+                O co chodzi?
+              </a>
             </li>
             <li>
-              <ScrollLink
-                className="form_nav_link"
-                to="about_us"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-70}
-              >
-                <Link to="/" className="form_link">
-                  O nas{' '}
-                </Link>
-              </ScrollLink>
+              <a className="form_nav_link" href="/#about_us">
+                O nas
+              </a>
             </li>
             <li>
-              <ScrollLink
-                className="form_nav_link"
-                to="who_we_help"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-70}
-              >
-                <Link to="/" className="form_link">
-                  Fundacja i organizacje
-                </Link>
-              </ScrollLink>
+              <a className="form_nav_link" href="/#who_we_help">
+                Fundacja i organizacje
+              </a>
             </li>
             <li>
-              <ScrollLink
-                className="form_nav_link"
-                to="home_contact"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-70}
-              >
-                <Link to="/" className="form_link">
-                  Kontakt
-                </Link>
-              </ScrollLink>
+              <a className="form_nav_link" href="/#home_contact">
+                Kontakt
+              </a>
             </li>
           </ul>
         </nav>

@@ -6,7 +6,7 @@ import signatureAboutUs from '../assets/signatureAboutUs.png';
 
 const HomeAboutUs = () => {
   return (
-    <section className="about_us">
+    <section className="about_us" id="about_us">
       <div className="about_us_text">
         <h3>O nas</h3>
         <img src={decoration} alt="text decoration" className="about_us_decoration" />

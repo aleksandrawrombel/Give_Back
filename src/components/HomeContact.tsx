@@ -88,7 +88,7 @@ const HomeContact = () => {
   }
 
   return (
-    <section className="home_contact">
+    <section className="home_contact" id="home_contact">
       <div className="home_contact_image">
         <img src={contactFormBackground} alt="pile of clothing" />
       </div>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Link as ScrollLink } from 'react-scroll';
 import supabase from './supabase';
 
 import heroImage from '../assets/heroImage.png';
@@ -66,7 +65,7 @@ const HomeHeader = () => {
             </ul>
           )}
           {loggedIn === true && (
-            <ul className="nav_registration">
+            <ul className="nav_registration" id="nav_registration">
               <li>
                 <p className="logged_in_user_email">{`Cześć, ${loggedInUserEmail}!`}</p>
               </li>
@@ -82,69 +81,29 @@ const HomeHeader = () => {
           )}
           <ul className="nav_menu">
             <li>
-              <ScrollLink
-                className="nav_link"
-                to="nav_registration"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-70}
-              >
+              <a className="nav_link" href="#nav_registration">
                 Start
-              </ScrollLink>
+              </a>
             </li>
             <li>
-              <ScrollLink
-                className="nav_link"
-                to="home_simple_steps"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-70}
-              >
+              <a className="nav_link" href="#home_simple_steps">
                 O co chodzi?
-              </ScrollLink>
+              </a>
             </li>
             <li>
-              <ScrollLink
-                className="nav_link"
-                to="about_us"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-70}
-              >
+              <a className="nav_link" href="#about_us">
                 O nas
-              </ScrollLink>
+              </a>
             </li>
             <li>
-              <ScrollLink
-                className="nav_link"
-                to="who_we_help"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-70}
-              >
+              <a className="nav_link" href="#who_we_help">
                 Fundacja i organizacje
-              </ScrollLink>
+              </a>
             </li>
             <li>
-              <ScrollLink
-                className="nav_link"
-                to="home_contact"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-70}
-              >
+              <a className="nav_link" href="#home_contact">
                 Kontakt
-              </ScrollLink>
+              </a>
             </li>
           </ul>
         </nav>
