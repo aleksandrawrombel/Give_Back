@@ -4,7 +4,7 @@ import { Link as ScrollLink } from 'react-scroll';
 import supabase from './supabase';
 
 import heroDecoration from '../assets/heroDecoration.svg';
-import formHeroImage from '../assets/FormHeroImage.png';
+import formHeroImage from '../assets/formHeroImage.png';
 
 const FormHeader = () => {
   //check logged in user
