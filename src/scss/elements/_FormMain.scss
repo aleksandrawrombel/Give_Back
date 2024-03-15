@@ -160,3 +160,175 @@
     }
   }
 }
+
+//step three
+
+.form_main_header_text_step_three {
+  width: 1213px;
+}
+
+.form_main_step_three {
+  margin-top: 28px;
+  display: flex;
+
+  p {
+    font-size: 24px;
+    font-weight: 300;
+    color: $color-gray-darker;
+    margin-right: 44px;
+    margin-top: 12px;
+  }
+
+  .custom_select_step_three {
+    position: relative;
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 300px;
+      height: 49px;
+      background-color: transparent;
+      font-size: 24px;
+      font-weight: 300;
+      color: $color-gray-darker;
+      padding-left: 18px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    &::after,
+    &::before {
+      size: 15px;
+      position: absolute;
+      content: '';
+      right: 20px;
+      pointer-events: none;
+    }
+
+    &::after {
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 15px solid $color-gray-darker;
+      top: 40%;
+    }
+  }
+}
+
+.form_main_step_three_help {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+
+  p {
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+  }
+}
+
+.checkbox_container_step_three {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  margin-top: 50px;
+  font-size: 24px;
+  color: black;
+  font-weight: 300;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+}
+
+.checkbox_step_three:hover {
+  background-color: $color-yellow;
+}
+
+.checkbox_container_step_three input:checked ~ .checkbox_step_three {
+  background-color: $color-yellow;
+}
+
+.checkbox_step_three {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 15px;
+  border: solid 0.75px $color-gray-darker;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.mothers {
+  width: 250px;
+  text-align: center;
+}
+
+.elders {
+  width: 231px;
+  text-align: center;
+}
+
+.help_part_one,
+.help_part_two {
+  display: flex;
+  gap: 10px;
+}
+
+.help_part_one {
+  .checkbox_container_step_three:nth-child(1) {
+    margin-right: 140px;
+  }
+
+  .checkbox_container_step_three:nth-child(2) {
+    margin-right: 260px;
+  }
+}
+
+.help_part_two {
+  margin-top: 35px;
+
+  .checkbox_container_step_three:nth-child(1) {
+    margin-right: 250px;
+  }
+}
+
+.form_main_step_three_organization {
+  margin-top: 100px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.form_main_step_three_message {
+  background-color: transparent;
+  border-color: $color-gray-darker;
+  width: 570px;
+  height: 40px;
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 6px 3px;
+  font-family: $font-base;
+}
+
+.form_main_buttons_step_three {
+  display: flex;
+  gap: 48px;
+  margin-top: 90px;
+}
+
+.form_main_step_three_button {
+  width: 180px;
+  height: 79px;
+  border: solid 1px $color-gray-darker;
+  background: transparent;
+  font-size: 24px;
+  font-weight: 300;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}

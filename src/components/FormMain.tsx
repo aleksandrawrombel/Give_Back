@@ -22,13 +22,13 @@ const FormMain = () => {
     setChecked({ ...checked, [name]: isChecked });
   };
 
-  // step two 
+  // step two
 
   const [bags, setBags] = useState(0);
   const countBags = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = parseInt(e.target.value);
     setBags(value);
-  }
+  };
 
   return (
     <>
@@ -122,7 +122,9 @@ const FormMain = () => {
                   <p>Liczba 60l worków:</p>
                   <div className="custom_select">
                     <select value={bags} onChange={countBags}>
-                      <option className="option" value="0">— wybierz —</option>
+                      <option className="option" value="0">
+                        — wybierz —
+                      </option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -144,7 +146,77 @@ const FormMain = () => {
           </section>
         </>
       )}
-      {currentPage === 3 && <h1>page 3</h1>}
+      {currentPage === 3 && (
+        <>
+          <section className="form_main_header">
+            <p className="form_main_header_important">Ważne!</p>
+            <p className="form_main_header_text form_main_header_text_step_three">
+              Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji w wyszukiwarce. Możesz też filtrować
+              organizacje po ich lokalizacji bądź celu ich pomocy.
+            </p>
+          </section>
+          <section className="form_main">
+            <div className="form_main_background_image">
+              <img src={formMainBackground} alt="teddy bear" />
+              <div className="form_main_step_one">
+                <span className="step_count">Krok 3/4</span>
+                <p className="step_instruction">Lokalizacja:</p>
+                <form className="form_main_step_three">
+                  <div className="custom_select_step_three">
+                    <select>
+                      <option className="option">— wybierz —</option>
+                      <option value="Poznań">Poznań</option>
+                      <option value="Warszawa">Warszawa</option>
+                      <option value="Kraków">Kraków</option>
+                      <option value="Wrocław">Wrocław</option>
+                      <option value="Katowice">Katowice</option>
+                    </select>
+                  </div>
+                </form>
+                <form className="form_main_step_three_help">
+                  <p>Komu chcesz pomóc?</p>
+                  <div className="help_part_one">
+                  <label className="checkbox_container_step_three">
+                    <input type="checkbox" />
+                    <span className="checkbox_step_three">dzieciom</span>
+                  </label>
+                  <label className="checkbox_container_step_three">
+                    <input type="checkbox" />
+                    <span className="checkbox_step_three mothers">samotnym matkom</span>
+                  </label>
+                  <label className="checkbox_container_step_three">
+                    <input type="checkbox" />
+                    <span className="checkbox_step_three">bezdomnym</span>
+                  </label>
+                  </div>
+                  <div className="help_part_two">
+                  <label className="checkbox_container_step_three">
+                    <input type="checkbox" />
+                    <span className="checkbox_step_three">niepełnosprawnym</span>
+                  </label>
+                  <label className="checkbox_container_step_three">
+                    <input type="checkbox" />
+                    <span className="checkbox_step_three elders">osobom starszym</span>
+                  </label>
+                  </div>
+                  <p className="form_main_step_three_organization">Wpisz nazwę konkretnej organizacji (opcjonalnie)</p>
+                  <textarea className="form_main_step_three_message"></textarea>
+                </form>
+                <div className="form_main_buttons_step_three">
+                  <button className="form_main_step_three_button" onClick={() => handleClick(2)}>
+                    Wstecz
+                  </button>
+                  <button className="form_main_step_three_button" onClick={() => handleClick(4)}>
+                    Dalej
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+      {currentPage === 4 && (
+      <h1>step 4</h1>)}
     </>
   );
 };
