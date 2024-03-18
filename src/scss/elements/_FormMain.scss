@@ -338,6 +338,7 @@
 
 .form_main_step_four {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .form_main_step_four_part1 {
@@ -419,6 +420,43 @@
       font-size: 18px;
       padding: 6px 3px;
       font-family: $font-base;
+
+      &::placeholder {
+        font-size: 18px;
+        font-family: $font-base;
+        padding: 6px 3px;
+      }
+    }
+
+    textarea {
+      margin-left: 22px;
+      height: 120px;
+      width: 256px;
+      background-color: transparent;
+      border: solid 0.75px $color-gray-darker;
+      color: $color-gray-darker;
+      font-size: 18px;
+      padding: 6px 3px;
+      font-family: $font-base;
+    }
+
+    .hour_input,
+    .minute_input {
+      width: 50px;
+      border: none;
+      font-size: 18px;
+      font-family: $font-base;
+      color: $color-gray-darker;
+    }
+
+    .hour_input {
+      text-align: right;
+      margin-left: -17px;
+    }
+    .time_input {
+      width: 256px;
+      border: solid 0.75px $color-gray-darker;
+      margin-left: 47px;
     }
   }
 
@@ -428,11 +466,6 @@
 
   .hour_input {
     margin-left: 47px;
-  }
-
-  .delivery_input {
-    margin-left: 22px;
-    height: 120px;
   }
 
   .delivery_text {
@@ -446,6 +479,7 @@
 }
 
 .form_main_buttons_step_four {
+  flex-basis: 100%;
   display: flex;
   gap: 48px;
   margin-top: 198px;

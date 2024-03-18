@@ -1,4 +1,4 @@
-import React, { useState, FormEvent, useEffect } from 'react';
+import React, { useState, FormEvent, useEffect, ChangeEvent, useRef } from 'react';
 
 import formMainBackground from '../assets/formMainBackground.png';
 
@@ -86,6 +86,67 @@ const FormMain = () => {
   // console.log(city, localizationSpecific);
 
   //step four
+
+  interface FormData {
+    street: string;
+    city: string;
+    post: string;
+    phone: string;
+    date: string;
+    delivery: string;
+  }
+
+  //validate form data
+
+  const [formData, setFormData] = useState<FormData>({
+    street: '',
+    city: '',
+    post: '',
+    phone: '',
+    date: '',
+    delivery: '',
+  });
+
+  const [streetError, setStreetError] = useState('');
+  const [cityError, setCityError] = useState('');
+  const [postError, setPostError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [dateError, setDateError] = useState('');
+  const [hourError, setHourError] = useState('');
+  const [deliveryError, setDeliveryError] = useState('');
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const dateInputRef = useRef(null);
+
+  const handleAddressSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
+  const [hour, setHour] = useState('');
+  const [minute, setMinute] = useState('');
+
+  const handleHourChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputHour = event.target.value;
+    if (/^([01]?[0-9]|2[0-3])?$/.test(inputHour) || inputHour === '') {
+      setHour(inputHour);
+    }
+  };
+
+  const handleMinuteChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputMinute = event.target.value;
+    if (/^([0-5]?[0-9])?$/.test(inputMinute) || inputMinute === '') {
+      setMinute(inputMinute);
+    }
+  };
+
+  // console.log(formData, hour, minute)
 
   return (
     <>
@@ -319,58 +380,121 @@ const FormMain = () => {
               <div className="form_main_step_one">
                 <span className="step_count">Krok 4/4</span>
                 <p className="step_instruction">Podaj adres oraz termin odbioru rzecz przez kuriera</p>
-                <form className="form_main_step_four">
+                <form className="form_main_step_four" onSubmit={handleAddressSubmit} noValidate>
                   <div className="form_main_step_four_part1">
                     <p>Adres odbioru:</p>
                     <label className="street">
                       Ulica
-                      <input className="street_input"></input>
+                      <input
+                        className="street_input"
+                        type="text"
+                        name="street"
+                        value={formData.street}
+                        required
+                        onChange={handleInputChange}
+                      ></input>
                     </label>
                     <label className="city">
                       Miasto
-                      <input className="city_input"></input>
+                      <input
+                        className="city_input"
+                        type="city"
+                        name="city"
+                        value={formData.city}
+                        required
+                        onChange={handleInputChange}
+                      ></input>
                     </label>
                     <label className="post">
                       <span>
                         Kod <span>pocztowy</span>
                       </span>
-                      <input className="post_input"></input>
+                      <input
+                        className="post_input"
+                        type="text"
+                        name="post"
+                        value={formData.post}
+                        required
+                        onChange={handleInputChange}
+                      ></input>
                     </label>
                     <label className="phone">
                       <span>
                         Numer <span>telefonu</span>
                       </span>
-                      <input className="phone_input"></input>
+                      <input
+                        className="phone_input"
+                        type="text"
+                        name="phone"
+                        value={formData.phone}
+                        required
+                        onChange={handleInputChange}
+                      ></input>
                     </label>
                   </div>
                   <div className="form_main_step_four_part2">
-                  <p>Termin odbioru:</p>
+                    <p>Termin odbioru:</p>
                     <label className="date">
                       Data
-                      <input className="date_input"></input>
+                      <input
+                        className="date_input"
+                        placeholder="dd/mm/rrrr"
+                        type="date"
+                        name="date"
+                        ref={dateInputRef}
+                        value={formData.date}
+                        required
+                        onChange={handleInputChange}
+                      ></input>
                     </label>
                     <label className="hour">
                       Godzina
-                      <input className="hour_input"></input>
+                      <div className="time_input">
+                        <input
+                          className="hour_input"
+                          placeholder="hh"
+                          type="text"
+                          name="hour"
+                          value={hour}
+                          maxLength={2}
+                          required
+                          onChange={handleHourChange}
+                        ></input>
+                        :
+                        <input
+                          className="minute_input"
+                          placeholder="mm"
+                          type="text"
+                          name="minute"
+                          value={minute}
+                          maxLength={2}
+                          required
+                          onChange={handleMinuteChange}
+                        ></input>
+                      </div>
                     </label>
                     <label className="delivery">
                       <span className="delivery_text">
                         Uwagi <span>dla kuriera</span>
                       </span>
-                      <input className="delivery_input"></input>
+                      <textarea
+                        className="delivery_input"
+                        name="delivery"
+                        value={formData.delivery}
+                        required
+                        onChange={handleInputChange}
+                      ></textarea>
                     </label>
                   </div>
-                  </form>
                   <div className="form_main_buttons_step_four">
                     <button className="form_main_step_four_button" onClick={() => handleClick(3)}>
                       Wstecz
                     </button>
-                    <button
-                      className="form_main_step_four_button"
-                      onClick={() => handleClick(5)}>
+                    <button className="form_main_step_four_button" onClick={() => handleClick(5)}>
                       Dalej
                     </button>
                   </div>
+                </form>
               </div>
             </div>
           </section>
