@@ -312,6 +312,7 @@
   font-size: 18px;
   padding: 6px 3px;
   font-family: $font-base;
+  color: $color-gray-darker;
 }
 
 .form_main_buttons_step_three {
@@ -321,6 +322,136 @@
 }
 
 .form_main_step_three_button {
+  width: 180px;
+  height: 79px;
+  border: solid 1px $color-gray-darker;
+  background: transparent;
+  font-size: 24px;
+  font-weight: 300;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+//step four
+
+.form_main_step_four {
+  display: flex;
+}
+
+.form_main_step_four_part1 {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 50px;
+  }
+
+  label {
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 256px;
+      height: 40px;
+      background-color: transparent;
+      border: solid 0.75px $color-gray-darker;
+      color: $color-gray-darker;
+      font-size: 18px;
+      padding: 6px 3px;
+      font-family: $font-base;
+    }
+  }
+
+  .street_input {
+    margin-left: 84px;
+  }
+
+  .city_input {
+    margin-left: 64px;
+  }
+
+  .post_input {
+    margin-left: 35px;
+  }
+
+  .phone_input {
+    margin-left: 47px;
+  }
+
+  span {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.form_main_step_four_part2 {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 50px;
+    margin-left: 130px;
+  }
+
+  label {
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 28px;
+    margin-left: 130px;
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 256px;
+      height: 40px;
+      background-color: transparent;
+      border: solid 0.75px $color-gray-darker;
+      color: $color-gray-darker;
+      font-size: 18px;
+      padding: 6px 3px;
+      font-family: $font-base;
+    }
+  }
+
+  .date_input {
+    margin-left: 86px;
+  }
+
+  .hour_input {
+    margin-left: 47px;
+  }
+
+  .delivery_input {
+    margin-left: 22px;
+    height: 120px;
+  }
+
+  .delivery_text {
+    align-self: flex-start;
+  }
+
+  span {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.form_main_buttons_step_four {
+  display: flex;
+  gap: 48px;
+  margin-top: 198px;
+}
+
+.form_main_step_four_button {
   width: 180px;
   height: 79px;
   border: solid 1px $color-gray-darker;

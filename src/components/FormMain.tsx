@@ -85,6 +85,7 @@ const FormMain = () => {
 
   // console.log(city, localizationSpecific);
 
+  //step four
 
   return (
     <>
@@ -304,7 +305,77 @@ const FormMain = () => {
           </section>
         </>
       )}
-      {currentPage === 4 && <h1>step 4</h1>}
+      {currentPage === 4 && (
+        <>
+          <section className="form_main_header">
+            <p className="form_main_header_important">Ważne!</p>
+            <p className="form_main_header_text form_main_header_text_step_three">
+              Podaj adres oraz termin odbioru rzeczy.
+            </p>
+          </section>
+          <section className="form_main">
+            <div className="form_main_background_image">
+              <img src={formMainBackground} alt="teddy bear" />
+              <div className="form_main_step_one">
+                <span className="step_count">Krok 4/4</span>
+                <p className="step_instruction">Podaj adres oraz termin odbioru rzecz przez kuriera</p>
+                <form className="form_main_step_four">
+                  <div className="form_main_step_four_part1">
+                    <p>Adres odbioru:</p>
+                    <label className="street">
+                      Ulica
+                      <input className="street_input"></input>
+                    </label>
+                    <label className="city">
+                      Miasto
+                      <input className="city_input"></input>
+                    </label>
+                    <label className="post">
+                      <span>
+                        Kod <span>pocztowy</span>
+                      </span>
+                      <input className="post_input"></input>
+                    </label>
+                    <label className="phone">
+                      <span>
+                        Numer <span>telefonu</span>
+                      </span>
+                      <input className="phone_input"></input>
+                    </label>
+                  </div>
+                  <div className="form_main_step_four_part2">
+                  <p>Termin odbioru:</p>
+                    <label className="date">
+                      Data
+                      <input className="date_input"></input>
+                    </label>
+                    <label className="hour">
+                      Godzina
+                      <input className="hour_input"></input>
+                    </label>
+                    <label className="delivery">
+                      <span className="delivery_text">
+                        Uwagi <span>dla kuriera</span>
+                      </span>
+                      <input className="delivery_input"></input>
+                    </label>
+                  </div>
+                  </form>
+                  <div className="form_main_buttons_step_four">
+                    <button className="form_main_step_four_button" onClick={() => handleClick(3)}>
+                      Wstecz
+                    </button>
+                    <button
+                      className="form_main_step_four_button"
+                      onClick={() => handleClick(5)}>
+                      Dalej
+                    </button>
+                  </div>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
     </>
   );
 };
