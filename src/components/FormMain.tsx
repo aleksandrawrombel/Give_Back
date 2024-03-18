@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 
 import formMainBackground from '../assets/formMainBackground.png';
 
@@ -10,7 +10,7 @@ const FormMain = () => {
     setCurrentPage(pageNumber);
   };
 
-  // step one
+  //step one
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,13 +22,69 @@ const FormMain = () => {
     setChecked({ ...checked, [name]: isChecked });
   };
 
-  // step two
+  // console.log(checked);
+
+  //step two
 
   const [bags, setBags] = useState(0);
   const countBags = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = parseInt(e.target.value);
     setBags(value);
   };
+
+  // console.log(bags);
+
+  //step three
+
+  const [city, setCity] = useState('');
+  const whichCity = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    setCity(value);
+  };
+
+  // console.log(city);
+
+  const [checkedGroup, setCheckedGroup] = useState<{ [key: string]: boolean }>({});
+  const handleCheckboxGroup = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked: isChecked } = e.target;
+    setCheckedGroup({ ...checkedGroup, [name]: isChecked });
+  };
+
+  // console.log(checkedGroup);
+
+  const handleSubmitGroup = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
+  const [unchecked, setUnchecked] = useState(false);
+
+  useEffect(() => {
+    const allCheckboxesUnchecked = Object.values(checkedGroup).every((checked) => !checked);
+
+    if (Object.keys(checkedGroup).length === 0 || allCheckboxesUnchecked) {
+      setUnchecked(true);
+    } else {
+      setUnchecked(false);
+    }
+  }, [checkedGroup]);
+
+  // console.log('unchecked boxes:', unchecked);
+
+  const [localizationSpecific, setLocalizationSpecific] = useState('');
+
+  const handleLocalizationSpecific = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const localization = e.target.value;
+    setLocalizationSpecific(localization);
+  };
+
+  useEffect(() => {
+    if (localizationSpecific) {
+      setCity('');
+    }
+  }, [localizationSpecific]);
+
+  // console.log(city, localizationSpecific);
+
 
   return (
     <>
@@ -161,10 +217,12 @@ const FormMain = () => {
               <div className="form_main_step_one">
                 <span className="step_count">Krok 3/4</span>
                 <p className="step_instruction">Lokalizacja:</p>
-                <form className="form_main_step_three">
+                <form className="form_main_step_three" onSubmit={handleSubmitGroup}>
                   <div className="custom_select_step_three">
-                    <select>
-                      <option className="option">— wybierz —</option>
+                    <select value={city} onChange={whichCity} disabled={localizationSpecific.length > 0}>
+                      <option className="option" value="">
+                        — wybierz —
+                      </option>
                       <option value="Poznań">Poznań</option>
                       <option value="Warszawa">Warszawa</option>
                       <option value="Kraków">Kraków</option>
@@ -176,47 +234,77 @@ const FormMain = () => {
                 <form className="form_main_step_three_help">
                   <p>Komu chcesz pomóc?</p>
                   <div className="help_part_one">
-                  <label className="checkbox_container_step_three">
-                    <input type="checkbox" />
-                    <span className="checkbox_step_three">dzieciom</span>
-                  </label>
-                  <label className="checkbox_container_step_three">
-                    <input type="checkbox" />
-                    <span className="checkbox_step_three mothers">samotnym matkom</span>
-                  </label>
-                  <label className="checkbox_container_step_three">
-                    <input type="checkbox" />
-                    <span className="checkbox_step_three">bezdomnym</span>
-                  </label>
+                    <label className="checkbox_container_step_three">
+                      <input
+                        type="checkbox"
+                        name="children"
+                        checked={checkedGroup.children || false}
+                        onChange={handleCheckboxGroup}
+                      />
+                      <span className="checkbox_step_three">dzieciom</span>
+                    </label>
+                    <label className="checkbox_container_step_three">
+                      <input
+                        type="checkbox"
+                        name="singleMothers"
+                        checked={checkedGroup.singleMothers || false}
+                        onChange={handleCheckboxGroup}
+                      />
+                      <span className="checkbox_step_three mothers">samotnym matkom</span>
+                    </label>
+                    <label className="checkbox_container_step_three">
+                      <input
+                        type="checkbox"
+                        name="homeless"
+                        checked={checkedGroup.homeless || false}
+                        onChange={handleCheckboxGroup}
+                      />
+                      <span className="checkbox_step_three">bezdomnym</span>
+                    </label>
                   </div>
                   <div className="help_part_two">
-                  <label className="checkbox_container_step_three">
-                    <input type="checkbox" />
-                    <span className="checkbox_step_three">niepełnosprawnym</span>
-                  </label>
-                  <label className="checkbox_container_step_three">
-                    <input type="checkbox" />
-                    <span className="checkbox_step_three elders">osobom starszym</span>
-                  </label>
+                    <label className="checkbox_container_step_three">
+                      <input
+                        type="checkbox"
+                        name="disabled"
+                        checked={checkedGroup.disabled || false}
+                        onChange={handleCheckboxGroup}
+                      />
+                      <span className="checkbox_step_three">niepełnosprawnym</span>
+                    </label>
+                    <label className="checkbox_container_step_three">
+                      <input
+                        type="checkbox"
+                        name="elders"
+                        checked={checkedGroup.elders || false}
+                        onChange={handleCheckboxGroup}
+                      />
+                      <span className="checkbox_step_three elders">osobom starszym</span>
+                    </label>
                   </div>
-                  <p className="form_main_step_three_organization">Wpisz nazwę konkretnej organizacji (opcjonalnie)</p>
-                  <textarea className="form_main_step_three_message"></textarea>
+                  <p className="form_main_step_three_organization">Wpisz nazwę konkretnej lokalizacji (opcjonalnie)</p>
+                  <textarea className="form_main_step_three_message" onChange={handleLocalizationSpecific}></textarea>
+
+                  <div className="form_main_buttons_step_three">
+                    <button className="form_main_step_three_button" onClick={() => handleClick(2)}>
+                      Wstecz
+                    </button>
+                    <button
+                      className="form_main_step_three_button"
+                      onClick={() => handleClick(4)}
+                      disabled={unchecked}
+                      style={{ opacity: !unchecked ? '' : '0.5' }}
+                    >
+                      Dalej
+                    </button>
+                  </div>
                 </form>
-                <div className="form_main_buttons_step_three">
-                  <button className="form_main_step_three_button" onClick={() => handleClick(2)}>
-                    Wstecz
-                  </button>
-                  <button className="form_main_step_three_button" onClick={() => handleClick(4)}>
-                    Dalej
-                  </button>
-                </div>
               </div>
             </div>
           </section>
         </>
       )}
-      {currentPage === 4 && (
-      <h1>step 4</h1>)}
+      {currentPage === 4 && <h1>step 4</h1>}
     </>
   );
 };
