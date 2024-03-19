@@ -3,6 +3,7 @@ import React, { useState, FormEvent, useEffect, ChangeEvent, useRef } from 'reac
 import formMainBackground from '../assets/formMainBackground.png';
 import tshirtIcon from '../assets/tshirtIcon.png';
 import recycleIcon from '../assets/recycleIcon.png';
+import decoration from '../assets/heroDecoration.svg';
 
 const FormMain = () => {
   //form pagination
@@ -643,13 +644,21 @@ const FormMain = () => {
                 <div className="tshirt_icon_summary">
                   <img src={tshirtIcon} alt="t-shirt icon" />
                 </div>
-                <p>{summaryItems ? `worki: ${bags} | ${summaryItems} | ${summaryGroups}` : `worki: ${bags} | ${summaryGroups}`}</p>
+                <p>
+                  {summaryItems
+                    ? `worki: ${bags} | ${summaryItems} | ${summaryGroups}`
+                    : `worki: ${bags} | ${summaryGroups}`}
+                </p>
               </div>
               <div className="localization_summary">
                 <div className="recycle_icon_summary">
                   <img src={recycleIcon} alt="recycle icon" />
                 </div>
-                <p>{city || localizationSpecific ? `dla lokalizacji: ${city ? city : localizationSpecific}` : `dla lokalizacji: brak wybranej lokalizacji`}</p>
+                <p>
+                  {city || localizationSpecific
+                    ? `dla lokalizacji: ${city ? city : localizationSpecific}`
+                    : `dla lokalizacji: brak wybranej lokalizacji`}
+                </p>
               </div>
             </div>
             <div className="form_summary">
@@ -698,9 +707,22 @@ const FormMain = () => {
               <button className="form_main_summary_button" onClick={() => handleClick(4)}>
                 Wstecz
               </button>
-              <button className="form_main_summary_button confirm" type="submit">
+              <button className="form_main_summary_button confirm" onClick={() => handleClick(6)}>
                 Potwierdzam
               </button>
+            </div>
+          </div>
+        </section>
+      )}
+      {currentPage === 6 && (
+        <section className="thank_you">
+          <div className="form_main_background_image">
+            <img src={formMainBackground} alt="teddy bear" />
+            <div className="thank_you_container">
+              <h1>Dziękujemy za przesłanie formularza! Na maila prześlemy wszelkie informacje o odbiorze.</h1>
+              <div className="thank_you_decoration">
+                <img src={decoration} alt="text decoration" />
+              </div>
             </div>
           </div>
         </section>
