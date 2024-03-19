@@ -1,6 +1,8 @@
 import React, { useState, FormEvent, useEffect, ChangeEvent, useRef } from 'react';
 
 import formMainBackground from '../assets/formMainBackground.png';
+import tshirtIcon from '../assets/tshirtIcon.png';
+import recycleIcon from '../assets/recycleIcon.png';
 
 const FormMain = () => {
   //form pagination
@@ -23,6 +25,30 @@ const FormMain = () => {
   };
 
   // console.log(checked);
+
+  const items: string[] = [];
+
+  if (checked.clothes1) {
+    items.push('ubrania w dobrym stanie');
+  }
+
+  if (checked.clothes2) {
+    items.push('ubrania do wyrzucenia');
+  }
+
+  if (checked.other) {
+    items.push('inne');
+  }
+
+  if (checked.books) {
+    items.push('książki');
+  }
+
+  if (checked.toys) {
+    items.push('zabawki');
+  }
+
+  const summaryItems = items.join(', ');
 
   //step two
 
@@ -51,6 +77,30 @@ const FormMain = () => {
   };
 
   // console.log(checkedGroup);
+
+  const groups: string[] = [];
+
+  if (checkedGroup.children) {
+    groups.push('dzieciom');
+  }
+
+  if (checkedGroup.singleMothers) {
+    groups.push('samotnym matkom');
+  }
+
+  if (checkedGroup.homeless) {
+    groups.push('bezdomnym');
+  }
+
+  if (checkedGroup.disabled) {
+    groups.push('niepełnosprawnym');
+  }
+
+  if (checkedGroup.elders) {
+    groups.push('osobom starszym');
+  }
+
+  const summaryGroups = groups.join(', ');
 
   const handleSubmitGroup = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -124,6 +174,12 @@ const FormMain = () => {
   };
 
   const dateInputRef = useRef(null);
+
+  function formatDate(inputDate: string) {
+    const parts = inputDate.split('-');
+    const formattedDate = `${parts[2]}.${parts[1]}.${parts[0]}`;
+    return formattedDate;
+  }
 
   const handleAddressSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -348,7 +404,7 @@ const FormMain = () => {
                 <p className="step_instruction">Lokalizacja:</p>
                 <form className="form_main_step_three" onSubmit={handleSubmitGroup}>
                   <div className="custom_select_step_three">
-                    <select value={city} onChange={whichCity} disabled={localizationSpecific.length > 0}>
+                    <select value={city} onChange={whichCity} disabled={localizationSpecific.length !== 0}>
                       <option className="option" value="">
                         — wybierz —
                       </option>
@@ -485,6 +541,7 @@ const FormMain = () => {
                         value={formData.post}
                         required
                         onChange={handleInputChange}
+                        maxLength={6}
                       ></input>
                     </label>
                     {postError && <span className="validation_error validation_error_address">{postError}</span>}
@@ -499,6 +556,7 @@ const FormMain = () => {
                         value={formData.phone}
                         required
                         onChange={handleInputChange}
+                        maxLength={9}
                       ></input>
                     </label>
                     {phoneError && <span className="validation_error validation_error_address">{phoneError}</span>}
@@ -573,6 +631,79 @@ const FormMain = () => {
             </div>
           </section>
         </>
+      )}
+      {currentPage === 5 && (
+        <section className="summary">
+          <div className="form_main_background_image">
+            <img src={formMainBackground} alt="teddy bear" />
+            <div className="summary_container">
+              <p className="summary_title">Podsumowanie Twojej darowizny</p>
+              <p className="summary_title2">Oddajesz:</p>
+              <div className="items_summary">
+                <div className="tshirt_icon_summary">
+                  <img src={tshirtIcon} alt="t-shirt icon" />
+                </div>
+                <p>{summaryItems ? `worki: ${bags} | ${summaryItems} | ${summaryGroups}` : `worki: ${bags} | ${summaryGroups}`}</p>
+              </div>
+              <div className="localization_summary">
+                <div className="recycle_icon_summary">
+                  <img src={recycleIcon} alt="recycle icon" />
+                </div>
+                <p>{city || localizationSpecific ? `dla lokalizacji: ${city ? city : localizationSpecific}` : `dla lokalizacji: brak wybranej lokalizacji`}</p>
+              </div>
+            </div>
+            <div className="form_summary">
+              <div className="form_summary_address">
+                <p className="address_title">Adres odbioru:</p>
+                <div className="street_summary">
+                  <p>Ulica</p>
+                  <p className="street_value">{formData.street}</p>
+                </div>
+                <div className="city_summary">
+                  <p>Miasto</p>
+                  <p className="city_value">{formData.city}</p>
+                </div>
+                <div className="post_summary">
+                  <p>
+                    Kod <span>pocztowy</span>
+                  </p>
+                  <p className="post_value">{formData.post}</p>
+                </div>
+                <div className="phone_summary">
+                  <p>
+                    Numer <span>telefonu</span>
+                  </p>
+                  <p className="phone_value">{formData.phone}</p>
+                </div>
+              </div>
+              <div className="form_summary_date">
+                <p className="date_title">Termin odbioru:</p>
+                <div className="date_summary">
+                  <p>Data</p>
+                  <p className="date_value">{formatDate(formData.date)}</p>
+                </div>
+                <div className="hour_summary">
+                  <p>Godzina</p>
+                  <p className="hour_value">{`${hour}:${minute}`}</p>
+                </div>
+                <div className="delivery_summary">
+                  <p>
+                    Uwagi<span>dla kuriera</span>
+                  </p>
+                  <p className="delivery_value">{formData.delivery}</p>
+                </div>
+              </div>
+            </div>
+            <div className="form_main_buttons_summary">
+              <button className="form_main_summary_button" onClick={() => handleClick(4)}>
+                Wstecz
+              </button>
+              <button className="form_main_summary_button confirm" type="submit">
+                Potwierdzam
+              </button>
+            </div>
+          </div>
+        </section>
       )}
     </>
   );

@@ -507,3 +507,162 @@
 .validation_error_address2 {
   margin-left: 265px;
 }
+
+//summary
+
+.summary_container {
+  margin-left: 142px;
+}
+
+.summary_title {
+  font-size: 36px;
+  color: black;
+  font-weight: 600;
+  margin-top: 70px;
+}
+
+.summary_title2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: black;
+  margin-top: 45px;
+}
+
+.tshirt_icon_summary {
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.items_summary {
+  display: flex;
+  margin-top: 20px;
+  width: 1200px;
+
+  p {
+    font-size: 24px;
+    margin-left: 80px;
+    margin-top: 12px;
+  }
+}
+
+.recycle_icon_summary {
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.localization_summary {
+  display: flex;
+  margin-top: 20px;
+
+  p {
+    font-size: 24px;
+    margin-left: 80px;
+    margin-top: 12px;
+  }
+}
+
+.form_summary {
+  margin-left: 142px;
+  margin-top: 58px;
+  width: 740px;
+  display: flex;
+  justify-content: space-between;
+
+  .address_title,
+  .date_title {
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+  }
+}
+
+.street_summary,
+.city_summary,
+.post_summary,
+.phone_summary {
+  display: flex;
+  margin-top: 25px;
+  font-size: 24px;
+  font-weight: 300;
+  color: black;
+  align-items: center;
+
+  span {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.street_value {
+  margin-left: 84px;
+}
+
+.city_value {
+  margin-left: 64px;
+}
+
+.post_value {
+  margin-left: 35px;
+}
+
+.phone_value {
+  margin-left: 47px;
+}
+
+.date_summary,
+.hour_summary,
+.delivery_summary {
+  display: flex;
+  margin-top: 25px;
+  font-size: 24px;
+  font-weight: 300;
+  color: black;
+  align-items: center;
+
+  span {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.date_value {
+  margin-left: 85px;
+}
+
+.hour_value {
+  margin-left: 47px;
+}
+
+.delivery_value {
+  margin-left: 23px;
+  align-self: flex-start;
+}
+
+.form_main_buttons_summary {
+  display: flex;
+  gap: 48px;
+  margin-top: 89px;
+  margin-left: 146px;
+}
+
+.form_main_summary_button {
+  width: 180px;
+  height: 79px;
+  border: solid 1px $color-gray-darker;
+  background: transparent;
+  font-size: 24px;
+  font-weight: 300;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.confirm {
+  width: 244px;
+  height: 79px;
+}
