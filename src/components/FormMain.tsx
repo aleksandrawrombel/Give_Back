@@ -113,7 +113,7 @@ const FormMain = () => {
   const [phoneError, setPhoneError] = useState('');
   const [dateError, setDateError] = useState('');
   const [hourError, setHourError] = useState('');
-  const [deliveryError, setDeliveryError] = useState('');
+  const [minuteError, setMinuteError] = useState('');
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -127,6 +127,73 @@ const FormMain = () => {
 
   const handleAddressSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    let isCorrect = true;
+
+    if (formData.street === '') {
+      setStreetError('Podana ulica jest nieprawidłowa!');
+      isCorrect = false;
+    } else if (formData.street.length < 2) {
+      setStreetError('Podana ulica jest nieprawidłowa!');
+      isCorrect = false;
+    } else {
+      setStreetError('');
+    }
+
+    if (formData.city === '') {
+      setCityError('Podane miasto jest nieprawidłowe!');
+      isCorrect = false;
+    } else if (formData.city.length < 2) {
+      setCityError('Podana ulica jest nieprawidłowa!');
+      isCorrect = false;
+    } else {
+      setCityError('');
+    }
+
+    if (formData.post === '') {
+      setPostError('Podany kod pocztowy jest nieprawidłowy!');
+      isCorrect = false;
+    } else if (!/^\d{2}-\d{3}$/.test(formData.post)) {
+      setPostError('Podany kod pocztowy jest nieprawidłowy!');
+      isCorrect = false;
+    } else {
+      setPostError('');
+    }
+
+    if (formData.phone === '') {
+      setPhoneError('Podany numer jest nieprawidłowy!');
+      isCorrect = false;
+    } else if (!/^\d{9}$/.test(formData.phone)) {
+      setPhoneError('Podany numer jest nieprawidłowy!');
+      isCorrect = false;
+    } else {
+      setPhoneError('');
+    }
+
+    if (hour === '') {
+      setHourError('Podana godzina jest nieporpawna!');
+      isCorrect = false;
+    } else {
+      setHourError('');
+    }
+
+    if (minute == '') {
+      setMinuteError('Podana minuta jest nieporpawna!');
+      isCorrect = false;
+    } else {
+      setMinuteError('');
+    }
+
+    if (formData.date == '') {
+      setDateError('Podana data jest nieporpawna!');
+      isCorrect = false;
+    } else {
+      setDateError('');
+    }
+
+    if (isCorrect) {
+      handleClick(5);
+    }
   };
 
   const [hour, setHour] = useState('');
@@ -394,6 +461,7 @@ const FormMain = () => {
                         onChange={handleInputChange}
                       ></input>
                     </label>
+                    {streetError && <span className="validation_error validation_error_address">{streetError}</span>}
                     <label className="city">
                       Miasto
                       <input
@@ -405,6 +473,7 @@ const FormMain = () => {
                         onChange={handleInputChange}
                       ></input>
                     </label>
+                    {cityError && <span className="validation_error validation_error_address">{cityError}</span>}
                     <label className="post">
                       <span>
                         Kod <span>pocztowy</span>
@@ -418,6 +487,7 @@ const FormMain = () => {
                         onChange={handleInputChange}
                       ></input>
                     </label>
+                    {postError && <span className="validation_error validation_error_address">{postError}</span>}
                     <label className="phone">
                       <span>
                         Numer <span>telefonu</span>
@@ -431,6 +501,7 @@ const FormMain = () => {
                         onChange={handleInputChange}
                       ></input>
                     </label>
+                    {phoneError && <span className="validation_error validation_error_address">{phoneError}</span>}
                   </div>
                   <div className="form_main_step_four_part2">
                     <p>Termin odbioru:</p>
@@ -447,6 +518,7 @@ const FormMain = () => {
                         onChange={handleInputChange}
                       ></input>
                     </label>
+                    {dateError && <span className="validation_error validation_error_address2">{dateError}</span>}
                     <label className="hour">
                       Godzina
                       <div className="time_input">
@@ -473,6 +545,8 @@ const FormMain = () => {
                         ></input>
                       </div>
                     </label>
+                    {hourError && <span className="validation_error validation_error_address2">{hourError}</span>}
+                    {minuteError && <span className="validation_error validation_error_address2">{minuteError}</span>}
                     <label className="delivery">
                       <span className="delivery_text">
                         Uwagi <span>dla kuriera</span>
@@ -490,7 +564,7 @@ const FormMain = () => {
                     <button className="form_main_step_four_button" onClick={() => handleClick(3)}>
                       Wstecz
                     </button>
-                    <button className="form_main_step_four_button" onClick={() => handleClick(5)}>
+                    <button className="form_main_step_four_button" type="submit">
                       Dalej
                     </button>
                   </div>
