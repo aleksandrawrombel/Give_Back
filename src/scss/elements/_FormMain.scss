@@ -172,6 +172,7 @@
   border: solid 0.75px $color-gray-darker;
   margin-top: 15px;
   align-self: flex-end;
+  background-color: $color-cream;
 
   li {
     font-size: 24px;
@@ -179,6 +180,10 @@
     color: $color-gray-darker;
     padding-top: 6px;
     padding-left: 36px;
+
+    &:hover {
+      scale: 1.25;
+    }
   }
 }
 
@@ -287,6 +292,11 @@
     color: $color-gray-darker;
     padding-top: 10px;
     padding-left: 18px;
+
+    &:hover {
+      scale: 1.25;
+      padding-left: 40px;
+    }
   }
 }
 

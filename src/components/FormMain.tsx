@@ -274,7 +274,7 @@ const FormMain = () => {
     }
   };
 
-  console.log(formData, hour, minute)
+  // console.log(formData, hour, minute)
 
   //insert form data to supabase
 
