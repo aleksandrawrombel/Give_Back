@@ -1,5 +1,7 @@
 import React, { useState, FormEvent, useEffect, ChangeEvent, useRef } from 'react';
 
+import supabase from './supabase';
+
 import formMainBackground from '../assets/formMainBackground.png';
 import tshirtIcon from '../assets/tshirtIcon.png';
 import recycleIcon from '../assets/recycleIcon.png';
@@ -29,11 +31,11 @@ const FormMain = () => {
 
   const items: string[] = [];
 
-  if (checked.clothes1) {
+  if (checked.clothesNew) {
     items.push('ubrania w dobrym stanie');
   }
 
-  if (checked.clothes2) {
+  if (checked.clothesTrash) {
     items.push('ubrania do wyrzucenia');
   }
 
@@ -256,6 +258,8 @@ const FormMain = () => {
   const [hour, setHour] = useState('');
   const [minute, setMinute] = useState('');
 
+  const time = `${hour}:${minute}`;
+
   const handleHourChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputHour = event.target.value;
     if (/^([01]?[0-9]|2[0-3])?$/.test(inputHour) || inputHour === '') {
@@ -271,6 +275,31 @@ const FormMain = () => {
   };
 
   // console.log(formData, hour, minute)
+
+  //insert form data to supabase
+
+  async function insertAddressFormData() {
+    try {
+      const { data, error } = await supabase.from('GiveBackForm').insert([
+        {
+          items: summaryItems,
+          bags: bags,
+          localization: city,
+          localizationSpecific: localizationSpecific,
+          group: summaryGroups,
+          street: formData.street,
+          city: formData.city,
+          post: formData.post,
+          phone: formData.phone,
+          date: formData.date,
+          hour: time,
+          delivery: formData.delivery,
+        },
+      ]);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
 
   return (
     <>
@@ -293,8 +322,8 @@ const FormMain = () => {
                     ubrania, które nadają się do ponownego użycia
                     <input
                       type="checkbox"
-                      name="clothes1"
-                      checked={checked.clothes1 || false}
+                      name="clothesNew"
+                      checked={checked.clothesNew || false}
                       onChange={handleCheckboxChange}
                     />
                     <span className="checkbox"></span>
@@ -303,8 +332,8 @@ const FormMain = () => {
                     ubrania, do wyrzucenia
                     <input
                       type="checkbox"
-                      name="clothes2"
-                      checked={checked.clothes2 || false}
+                      name="clothesTrash"
+                      checked={checked.clothesTrash || false}
                       onChange={handleCheckboxChange}
                     />
                     <span className="checkbox"></span>
@@ -707,7 +736,13 @@ const FormMain = () => {
               <button className="form_main_summary_button" onClick={() => handleClick(4)}>
                 Wstecz
               </button>
-              <button className="form_main_summary_button confirm" onClick={() => handleClick(6)}>
+              <button
+                className="form_main_summary_button confirm"
+                onClick={() => {
+                  insertAddressFormData();
+                  handleClick(6);
+                }}
+              >
                 Potwierdzam
               </button>
             </div>
