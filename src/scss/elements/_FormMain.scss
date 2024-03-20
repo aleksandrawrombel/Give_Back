@@ -110,7 +110,7 @@
 
 .form_main_buttons {
   display: flex;
-  margin-top: 312px;
+  margin-top: 61px;
   gap: 48px;
 }
 
@@ -125,41 +125,96 @@
     margin-right: 44px;
     margin-top: 12px;
   }
+}
 
-  .custom_select {
-    position: relative;
+.custom_select {
+  height: 300px;
+}
 
-    select {
-      appearance: none;
-      -webkit-appearance: none;
-      width: 300px;
-      height: 49px;
-      background-color: transparent;
-      font-size: 24px;
-      font-weight: 300;
-      color: $color-gray-darker;
-      padding-left: 18px;
-      padding-top: 8px;
-      padding-bottom: 8px;
-    }
+.custom_select_bags {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
 
-    &::after,
-    &::before {
-      size: 15px;
-      position: absolute;
-      content: '';
-      right: 20px;
-      pointer-events: none;
-    }
+.selected_option_bags {
+  width: 300px;
+  height: 49px;
+  background-color: transparent;
+  border: solid 0.75px $color-gray-darker;
+  font-size: 24px;
+  font-weight: 300;
+  color: $color-gray-darker;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 
-    &::after {
-      border-left: 15px solid transparent;
-      border-right: 15px solid transparent;
-      border-top: 15px solid $color-gray-darker;
-      top: 40%;
-    }
+  &::after {
+    size: 15px;
+    content: '';
+    pointer-events: none;
+    margin-right: 8px;
+  }
+
+  &::after {
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid $color-gray-darker;
   }
 }
+
+.options {
+  width: 86px;
+  height: 160px;
+  border: solid 0.75px $color-gray-darker;
+  margin-top: 15px;
+  align-self: flex-end;
+
+  li {
+    font-size: 24px;
+    font-weight: 300;
+    color: $color-gray-darker;
+    padding-top: 6px;
+    padding-left: 36px;
+  }
+}
+
+// .custom_select {
+//   position: relative;
+
+//   select {
+//     appearance: none;
+//     -webkit-appearance: none;
+//     width: 300px;
+//     height: 49px;
+//     background-color: transparent;
+//     font-size: 24px;
+//     font-weight: 300;
+//     color: $color-gray-darker;
+//     padding-left: 18px;
+//     padding-top: 8px;
+//     padding-bottom: 8px;
+//   }
+
+//   &::after,
+//   &::before {
+//     size: 15px;
+//     position: absolute;
+//     content: '';
+//     right: 20px;
+//     pointer-events: none;
+//   }
+
+//   &::after {
+//     border-left: 15px solid transparent;
+//     border-right: 15px solid transparent;
+//     border-top: 15px solid $color-gray-darker;
+//     top: 40%;
+//   }
+// }
 
 //step three
 
@@ -178,41 +233,96 @@
     margin-right: 44px;
     margin-top: 12px;
   }
+}
 
-  .custom_select_step_three {
-    position: relative;
+.custom_select_city {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
 
-    select {
-      appearance: none;
-      -webkit-appearance: none;
-      width: 300px;
-      height: 49px;
-      background-color: transparent;
-      font-size: 24px;
-      font-weight: 300;
-      color: $color-gray-darker;
-      padding-left: 18px;
-      padding-top: 8px;
-      padding-bottom: 8px;
-    }
+.selected_option_city {
+  width: 300px;
+  height: 49px;
+  background-color: transparent;
+  border: solid 0.75px $color-gray-darker;
+  font-size: 24px;
+  font-weight: 300;
+  color: $color-gray-darker;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 
-    &::after,
-    &::before {
-      size: 15px;
-      position: absolute;
-      content: '';
-      right: 20px;
-      pointer-events: none;
-    }
+  &::after {
+    size: 15px;
+    content: '';
+    pointer-events: none;
+    margin-right: 8px;
+  }
 
-    &::after {
-      border-left: 15px solid transparent;
-      border-right: 15px solid transparent;
-      border-top: 15px solid $color-gray-darker;
-      top: 40%;
-    }
+  &::after {
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid $color-gray-darker;
   }
 }
+
+.options_city {
+  background-color: $color-cream;
+  width: 300px;
+  height: 180px;
+  border: solid 0.75px $color-gray-darker;
+  margin-top: 65px;
+  position: absolute;
+  z-index: 2;
+
+  li {
+    font-size: 24px;
+    font-weight: 300;
+    color: $color-gray-darker;
+    padding-top: 10px;
+    padding-left: 18px;
+  }
+}
+
+// .custom_select_step_three {
+//   position: relative;
+
+//   select {
+//     appearance: none;
+//     -webkit-appearance: none;
+//     width: 300px;
+//     height: 49px;
+//     background-color: transparent;
+//     font-size: 24px;
+//     font-weight: 300;
+//     color: $color-gray-darker;
+//     padding-left: 18px;
+//     padding-top: 8px;
+//     padding-bottom: 8px;
+//   }
+
+//   &::after,
+//   &::before {
+//     size: 15px;
+//     position: absolute;
+//     content: '';
+//     right: 20px;
+//     pointer-events: none;
+//   }
+
+//   &::after {
+//     border-left: 15px solid transparent;
+//     border-right: 15px solid transparent;
+//     border-top: 15px solid $color-gray-darker;
+//     top: 40%;
+//   }
+// }
 
 .form_main_step_three_help {
   display: flex;

@@ -274,7 +274,7 @@ const FormMain = () => {
     }
   };
 
-  // console.log(formData, hour, minute)
+  console.log(formData, hour, minute)
 
   //insert form data to supabase
 
@@ -300,6 +300,60 @@ const FormMain = () => {
       console.log(error.message);
     }
   }
+
+  //custom select - step 2
+
+  interface Option {
+    value: number;
+    label: string;
+  }
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState<Option | null>(null);
+  const options: Option[] = [
+    { value: 1, label: '1' },
+    { value: 2, label: '2' },
+    { value: 3, label: '3' },
+    { value: 4, label: '4' },
+    { value: 5, label: '5' },
+  ];
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleOptionClick = (option: Option) => {
+    setSelectedOption(option);
+    setIsOpen(false);
+    setBags(option.value);
+  };
+
+  //custom select - step 3
+
+  interface OptionCity {
+    value: string;
+    label: string;
+  }
+
+  const [isCityOpen, setIsCityOpen] = useState(false);
+  const [selectedOptionCity, setSelectedOptionCity] = useState<OptionCity | null>(null);
+  const optionsCity: OptionCity[] = [
+    { value: 'Poznań', label: 'Poznań' },
+    { value: 'Warszawa', label: 'Warszawa' },
+    { value: 'Kraków', label: 'Kraków' },
+    { value: 'Wrocław', label: 'Wrocław' },
+    { value: 'Katowice', label: 'Katowice' },
+  ];
+
+  const toggleCityDropdown = () => {
+    setIsCityOpen(!isCityOpen);
+  };
+
+  const handleOptionCityClick = (option: OptionCity) => {
+    setSelectedOptionCity(option);
+    setIsCityOpen(false);
+    setCity(option.value);
+  };
 
   return (
     <>
@@ -392,6 +446,26 @@ const FormMain = () => {
                 <form className="form_main_step_two">
                   <p>Liczba 60l worków:</p>
                   <div className="custom_select">
+                    <div className="custom_select_bags">
+                      <div className="selected_option_bags" onClick={toggleDropdown}>
+                        {selectedOption ? selectedOption.label : '— wybierz —'}
+                      </div>
+                      {isOpen && (
+                        <ul className="options">
+                          <li onClick={() => handleOptionClick(options[0])}>{options[0].label}</li>
+                          <li value="1" onClick={() => handleOptionClick(options[1])}>
+                            {options[1].label}
+                          </li>
+                          <li value="2" onClick={() => handleOptionClick(options[2])}>
+                            {options[2].label}
+                          </li>
+                          <li onClick={() => handleOptionClick(options[3])}>{options[3].label}</li>
+                          <li onClick={() => handleOptionClick(options[4])}>{options[4].label}</li>
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                  {/* <div className="custom_select">
                     <select value={bags} onChange={countBags}>
                       <option className="option" value="0">
                         — wybierz —
@@ -402,7 +476,7 @@ const FormMain = () => {
                       <option value="4">4</option>
                       <option value="5">5</option>
                     </select>
-                  </div>
+                  </div> */}
                 </form>
                 <div className="form_main_buttons">
                   <button className="form_main_step_one_button" onClick={() => handleClick(1)}>
@@ -433,7 +507,29 @@ const FormMain = () => {
                 <span className="step_count">Krok 3/4</span>
                 <p className="step_instruction">Lokalizacja:</p>
                 <form className="form_main_step_three" onSubmit={handleSubmitGroup}>
-                  <div className="custom_select_step_three">
+                  <div className="custom_select_city">
+                    <div
+                      className="selected_option_city"
+                      onClick={toggleCityDropdown}
+                      style={{ opacity: localizationSpecific.length !== 0 ? '0.5' : '' }}
+                    >
+                      {selectedOptionCity ? selectedOptionCity.label : '— wybierz —'}
+                    </div>
+                    {isCityOpen && (
+                      <ul className="options_city">
+                        <li onClick={() => handleOptionCityClick(optionsCity[0])}>{optionsCity[0].label}</li>
+                        <li value="1" onClick={() => handleOptionCityClick(optionsCity[1])}>
+                          {optionsCity[1].label}
+                        </li>
+                        <li value="2" onClick={() => handleOptionCityClick(optionsCity[2])}>
+                          {optionsCity[2].label}
+                        </li>
+                        <li onClick={() => handleOptionCityClick(optionsCity[3])}>{optionsCity[3].label}</li>
+                        <li onClick={() => handleOptionCityClick(optionsCity[4])}>{optionsCity[4].label}</li>
+                      </ul>
+                    )}
+                  </div>
+                  {/* <div className="custom_select_step_three">
                     <select value={city} onChange={whichCity} disabled={localizationSpecific.length !== 0}>
                       <option className="option" value="">
                         — wybierz —
@@ -444,7 +540,7 @@ const FormMain = () => {
                       <option value="Wrocław">Wrocław</option>
                       <option value="Katowice">Katowice</option>
                     </select>
-                  </div>
+                  </div> */}
                 </form>
                 <form className="form_main_step_three_help">
                   <p>Komu chcesz pomóc?</p>
