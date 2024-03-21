@@ -5,6 +5,7 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "types": ["vite/client"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -20,6 +21,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["Give_Back/src", "Give_Back/src/components/images.d.ts"],
+  "include": ["Give_Back/src", "images.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
