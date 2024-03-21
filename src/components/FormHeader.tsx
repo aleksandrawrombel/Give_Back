@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import supabase from './supabase';
 
 import heroDecoration from '../assets/heroDecoration.svg';
-import formHeroImage from '../assets/formHeroImage.png'; 
+import formHeroImage from '../assets/FormHeroImage.png'; 
 
 const FormHeader = () => {
   //check logged in user
