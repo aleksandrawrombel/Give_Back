@@ -81,7 +81,8 @@ const Register = () => {
       if (error) {
         throw error;
       } else {
-        window.location.href = 'http://localhost:5173/';
+        // window.location.href = 'http://localhost:5173/';
+        window.location.href = 'https://main--oddaj.netlify.app/';
       }
     } catch (error) {
       console.log(error);
