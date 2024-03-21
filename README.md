@@ -3,7 +3,7 @@
 _Created for a coding practice purpose. Based on a UX project created by one of the CodersLab graduates. Workflow based on a Trello project board._
 ### A desktop app featuring a straightforward registration process and a simple form through which users can effortlessly donate their unnecessary items to trusted institutions. Many potential users find themselves with items at home they wish to part with, but are unsure of how to do so effectively. While numerous solutions exist, many of them demand additional effort. Thanks to the platform, users can donate their unused items with ease and efficiency, confident that their donations will reach the right place.
 
-### Link to the website - 
+### Link to the website - https://oddaj.netlify.app/
 
 ### Snippets:
 <p align="center">
@@ -28,3 +28,4 @@ _Created for a coding practice purpose. Based on a UX project created by one of 
  * Supabase
 
 ### Badge:
+[![Netlify Status](https://api.netlify.com/api/v1/badges/220d4025-61d6-4176-9306-20856ffec91a/deploy-status)](https://app.netlify.com/sites/oddaj/deploys)
