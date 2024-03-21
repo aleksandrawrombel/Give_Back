@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import supabase from './supabase';
 
 import heroDecoration from '../assets/heroDecoration.svg';
-import formHeroImage from '../assets/formHeroImage.png';
+import formHeroImage from '../assets/formHeroImage.png'; 
 
 const FormHeader = () => {
   //check logged in user
@@ -82,29 +82,29 @@ const FormHeader = () => {
           )}
           <ul className="form_nav_menu">
               <li>
-              <a className="form_nav_link" href="/#nav_registration">
+              <Link className="form_nav_link" to="/#nav_registration">
                 Start
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="form_nav_link" href="/#home_simple_steps">
+              <Link className="form_nav_link" to="/#home_simple_steps">
                 O co chodzi?
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="form_nav_link" href="/#about_us">
+              <Link className="form_nav_link" to="/#about_us">
                 O nas
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="form_nav_link" href="/#who_we_help">
+              <Link className="form_nav_link" to="/#who_we_help">
                 Fundacja i organizacje
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="form_nav_link" href="/#home_contact">
+              <Link className="form_nav_link" to="/#home_contact">
                 Kontakt
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

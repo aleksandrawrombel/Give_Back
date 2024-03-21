@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import supabase from './supabase';
 
 import heroImage from '../assets/heroImage.png';
@@ -47,6 +47,30 @@ const HomeHeader = () => {
     }
   };
 
+  //scroll to section
+
+  function ScrollToSection() {
+    const location = useLocation();
+    const lastHash = useRef('');
+
+    useEffect(() => {
+      if (location.hash) {
+        lastHash.current = location.hash.slice(1);
+      }
+
+      if (lastHash.current && document.getElementById(lastHash.current)) {
+        setTimeout(() => {
+          document.getElementById(lastHash.current)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          lastHash.current = '';
+        }, 100);
+      }
+    }, [location]);
+
+    return null;
+  }
+
+  ScrollToSection();
+
   return (
     <header className="landing_page_container">
       <div className="hero_image">
@@ -81,29 +105,29 @@ const HomeHeader = () => {
           )}
           <ul className="nav_menu">
             <li>
-              <a className="nav_link" href="#nav_registration">
+              <Link className="nav_link" to="#nav_registration">
                 Start
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="nav_link" href="#home_simple_steps">
+              <Link className="nav_link" to="#home_simple_steps">
                 O co chodzi?
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="nav_link" href="#about_us">
+              <Link className="nav_link" to="#about_us">
                 O nas
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="nav_link" href="#who_we_help">
+              <Link className="nav_link" to="#who_we_help">
                 Fundacja i organizacje
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="nav_link" href="#home_contact">
+              <Link className="nav_link" to="#home_contact">
                 Kontakt
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
