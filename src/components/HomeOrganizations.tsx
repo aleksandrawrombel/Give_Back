@@ -1,5 +1,3 @@
-import React from 'react';
-
 import HomeOrganizationsPagination from './HomeOrganizationsPagination';
 
 const HomeOrganizations = () => {

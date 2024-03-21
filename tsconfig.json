@@ -21,6 +21,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["Give_Back/src", "images.d.ts"],
+  // "include": ["Give_Back/src/components", "Give_Back/src/images.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

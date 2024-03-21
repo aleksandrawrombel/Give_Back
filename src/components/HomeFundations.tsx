@@ -1,5 +1,3 @@
-import React from 'react';
-
 import HomeFundationsPagination from './HomeFundationsPagination';
 
 const HomeFundations = () => {

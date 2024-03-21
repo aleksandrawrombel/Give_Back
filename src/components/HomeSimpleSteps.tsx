@@ -1,5 +1,3 @@
-import React from 'react';
-
 import decoration from '../assets/heroDecoration.svg';
 import tshirtIcon from '../assets/tshirtIcon.png';
 import bagIcon from '../assets/bagIcon.png';

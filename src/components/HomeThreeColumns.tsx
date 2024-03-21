@@ -1,5 +1,3 @@
-import React from 'react';
-
 import threeColumnsBackground from '../assets/threeColumnsBackground.png';
 
 const HomeThreeColumns = () => {

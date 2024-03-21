@@ -1,5 +1,3 @@
-import React from 'react';
-
 import facebook from '../assets/Facebook.png';
 import instagram from '../assets/Instagram.png';
 

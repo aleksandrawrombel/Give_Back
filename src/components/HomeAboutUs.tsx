@@ -1,5 +1,3 @@
-import React from 'react';
-
 import decoration from '../assets/heroDecoration.svg';
 import peopleAboutUs from '../assets/peopleAboutUs.png';
 import signatureAboutUs from '../assets/signatureAboutUs.png';
