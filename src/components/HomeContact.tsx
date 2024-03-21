@@ -76,9 +76,7 @@ const HomeContact = () => {
 
   async function insertFormData() {
     try {
-      const { data } = await supabase
-        .from('ContactUs')
-        .insert({ name: formData.name, email: formData.email, body: formData.message });
+      await supabase.from('ContactUs').insert({ name: formData.name, email: formData.email, body: formData.message });
 
       setSuccessMessage('Wiadomość została wysłana! Wkrótce się skontaktujemy!');
       setFormData({ name: '', email: '', message: '' });

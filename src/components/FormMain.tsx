@@ -56,20 +56,20 @@ const FormMain = () => {
   //step two
 
   const [bags, setBags] = useState(0);
-  const countBags = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = parseInt(e.target.value);
-    setBags(value);
-  };
+  // const countBags = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   const value = parseInt(e.target.value);
+  //   setBags(value);
+  // };
 
   // console.log(bags);
 
   //step three
 
   const [city, setCity] = useState('');
-  const whichCity = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
-    setCity(value);
-  };
+  // const whichCity = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   const value = e.target.value;
+  //   setCity(value);
+  // };
 
   // console.log(city);
 
@@ -280,7 +280,7 @@ const FormMain = () => {
 
   async function insertAddressFormData() {
     try {
-      const { data, error } = await supabase.from('GiveBackForm').insert([
+      await supabase.from('GiveBackForm').insert([
         {
           items: summaryItems,
           bags: bags,
@@ -297,7 +297,7 @@ const FormMain = () => {
         },
       ]);
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   }
 
