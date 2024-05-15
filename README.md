@@ -1,5 +1,5 @@
 # Give Back (PL Oddaj Rzeczy)
-### A polish online platform where users can contribute their unused items to accredited organisations in need.
+### A Polish online platform where users can contribute their unused items to accredited organisations in need.
 _Created for a coding practice purpose. Based on a UX project created by one of the CodersLab graduates. Workflow based on a Trello project board._
 ### A desktop app featuring a straightforward registration process and a simple form through which users can effortlessly donate their unnecessary items to trusted institutions. Many potential users find themselves with items at home they wish to part with, but are unsure of how to do so effectively. While numerous solutions exist, many of them demand additional effort. Thanks to the platform, users can donate their unused items with ease and efficiency, confident that their donations will reach the right place.
 
