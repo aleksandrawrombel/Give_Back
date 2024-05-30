@@ -105,27 +105,27 @@ const HomeHeader = () => {
           )}
           <ul className="nav_menu">
             <li>
-              <Link className="nav_link" to="#nav_registration">
+              <Link className="nav_link" to="#nav_registration" data-cy="nav_start">
                 Start
               </Link>
             </li>
             <li>
-              <Link className="nav_link" to="#home_simple_steps">
+              <Link className="nav_link" to="#home_simple_steps" data-cy="nav_home_simple_steps">
                 O co chodzi?
               </Link>
             </li>
             <li>
-              <Link className="nav_link" to="#about_us">
+              <Link className="nav_link" to="#about_us" data-cy="nav_about_us">
                 O nas
               </Link>
             </li>
             <li>
-              <Link className="nav_link" to="#who_we_help">
+              <Link className="nav_link" to="#who_we_help" data-cy="nav_who_we_help">
                 Fundacja i organizacje
               </Link>
             </li>
             <li>
-              <Link className="nav_link" to="#home_contact">
+              <Link className="nav_link" to="#home_contact" data-cy="nav_home_contact">
                 Kontakt
               </Link>
             </li>
