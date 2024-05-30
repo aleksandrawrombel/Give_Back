@@ -93,7 +93,7 @@ const HomeContact = () => {
       <div className="form_section">
         <p>Skontaktuj się z nami</p>
         <img src={decoration} alt="text decoration" className="form_decoration" />
-        {successMessage && <span className="success_message">{successMessage}</span>}
+        {successMessage && <span className="success_message" data-cy="contact_success_message">{successMessage}</span>}
         <form className="contact_form" onSubmit={handleSubmit} noValidate>
           <div className="name_email_form">
             <div className="name_form">
@@ -106,8 +106,9 @@ const HomeContact = () => {
                 required
                 onChange={handleInputChange}
                 style={{ borderColor: nameError ? 'tomato' : 'black' }}
+                data-cy="contact_name_input"
               ></input>
-              {nameError && <span className="validation_error">{nameError}</span>}
+              {nameError && <span className="validation_error" data-cy="contact_name_error">{nameError}</span>}
             </div>
             <div className="email_form">
               <label>Wpisz swój email</label>
@@ -119,8 +120,9 @@ const HomeContact = () => {
                 required
                 onChange={handleInputChange}
                 style={{ borderColor: emailError ? 'tomato' : 'black' }}
+                data-cy="contact_email_input"
               ></input>
-              {emailError && <span className="validation_error">{emailError}</span>}
+              {emailError && <span className="validation_error" data-cy="contact_email_error">{emailError}</span>}
             </div>
           </div>
           <div className="message_form">
@@ -132,10 +134,11 @@ const HomeContact = () => {
               required
               onChange={handleInputChange}
               style={{ borderColor: messageError ? 'tomato' : 'black' }}
+              data-cy="contact_message_input"
             ></textarea>
-            {messageError && <span className="validation_error">{messageError}</span>}
+            {messageError && <span className="validation_error" data-cy="contact_message_error">{messageError}</span>}
           </div>
-          <button className="button_form" type="submit">
+          <button className="button_form" type="submit" data-cy="contact_submit_button">
             Wyślij
           </button>
         </form>
