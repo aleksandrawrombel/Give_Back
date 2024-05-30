@@ -11,7 +11,7 @@ const HomeOrganizationsPagination = () => {
     <>
       <section className="home_fundations_pagination">
         {currentPage === 1 && (
-          <div className="first_pagination_page">
+          <div className="first_pagination_page" data-cy="first_pagination_page">
             <article className="first_pagination_page_articles">
               <p className="fundation">Organizacja “Lorem Ipsum 1”</p>
               <div className="wrapper">
@@ -36,7 +36,7 @@ const HomeOrganizationsPagination = () => {
           </div>
         )}
         {currentPage === 2 && (
-          <div className="second_pagination_page">
+          <div className="second_pagination_page" data-cy="second_pagination_page">
             <article className="first_pagination_page_articles">
               <p className="fundation">Lorem ipsum dolor sit amet</p>
               <div className="wrapper">
@@ -64,13 +64,14 @@ const HomeOrganizationsPagination = () => {
       <div className="pagination_buttons">
         <button
           onClick={() => handleClick(1)}
-          className={currentPage === 1 ? 'current_page_button' : 'pagination_button'}
+          className={currentPage === 1 ? 'current_page_button' : 'pagination_button'} data-cy="pagination_button_1"
         >
           1
         </button>
         <button
           onClick={() => handleClick(2)}
           className={currentPage === 2 ? 'current_page_button' : 'pagination_button'}
+          data-cy="pagination_button_2"
         >
           2
         </button>

@@ -33,12 +33,14 @@ const HomeWhoWeHelp = () => {
         <button
           className={clickedComponent === 'organization' ? 'who_we_help_button clicked_button' : 'who_we_help_button'}
           onClick={() => handleClick('organization')}
+          data-cy="organizations_button"
         >
           Organizacjom pozarządowym
         </button>
         <button
           className={clickedComponent === 'locals' ? 'who_we_help_button clicked_button' : 'who_we_help_button'}
           onClick={() => handleClick('locals')}
+          data-cy="locals_button"
         >
           Lokalnym zbiórkom
         </button>

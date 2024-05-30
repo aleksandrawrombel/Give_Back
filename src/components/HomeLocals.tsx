@@ -5,7 +5,7 @@ const HomeLocals = () => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
       </p>
-      <section className="home_fundations_pagination">
+      <section className="home_fundations_pagination" data-cy="home_locals_pagination_page">
         <div className="first_pagination_page">
           <article className="first_pagination_page_articles">
             <p className="fundation">Zbiórka “Lorem Ipsum 1”</p>
