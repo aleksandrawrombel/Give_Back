@@ -149,8 +149,9 @@ const Register = () => {
               required
               onChange={handleInputChange}
               style={{ borderColor: emailError ? 'tomato' : 'black' }}
+              data-cy="register_email_input"
             ></input>
-            {emailError && <span className="validation_error register_error">{emailError}</span>}
+            {emailError && <span className="validation_error register_error" data-cy="register_email_error">{emailError}</span>}
             <label className="register_password_label">Hasło</label>
             <input
               className="register_password"
@@ -160,8 +161,9 @@ const Register = () => {
               required
               onChange={handleInputChange}
               style={{ borderColor: passwordError ? 'tomato' : 'black' }}
+              data-cy="register_password_input"
             ></input>
-            {passwordError && <span className="validation_error register_error">{passwordError}</span>}
+            {passwordError && <span className="validation_error register_error" data-cy="register_password_error">{passwordError}</span>}
             <label className="register_password_label">Powtórz hasło</label>
             <input
               className="register_password"
@@ -171,8 +173,9 @@ const Register = () => {
               required
               onChange={handleInputChange}
               style={{ borderColor: password2Error ? 'tomato' : 'black' }}
+              data-cy="register_password_confirmation_input"
             ></input>
-            {password2Error && <span className="validation_error register_error">{password2Error}</span>}
+            {password2Error && <span className="validation_error register_error" data-cy="register_password2_error">{password2Error}</span>}
           </div>
           <div className="register_buttons">
             <button>
@@ -180,7 +183,7 @@ const Register = () => {
                 Zaloguj się
               </Link>
             </button>
-            <button>Załóż konto</button>
+            <button data-cy="register_submit_button">Załóż konto</button>
           </div>
         </form>
       </section>

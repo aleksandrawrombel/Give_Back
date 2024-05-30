@@ -81,7 +81,7 @@ const HomeHeader = () => {
           {loggedIn === false && (
             <ul className="nav_registration">
               <li>
-                <Link to="/logowanie">Zaloguj</Link>
+                <Link to="/logowanie" data-cy="nav_login">Zaloguj</Link>
               </li>
               <li>
                 <Link to="/rejestracja">Załóż konto</Link>
