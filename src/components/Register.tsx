@@ -23,6 +23,8 @@ const Register = () => {
   const [passwordError, setPasswordError] = useState('');
   const [password2Error, setPassword2Error] = useState('');
 
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
@@ -66,6 +68,7 @@ const Register = () => {
 
     if (isCorrect) {
       await registerUser(registerData.email, registerData.password);
+      setRegistrationSuccess(true);
     }
   };
 
@@ -181,6 +184,7 @@ const Register = () => {
           </div>
         </form>
       </section>
+      {registrationSuccess && (
       <section className="register_success">
         <h1>Rejestracja nastąpiła pomyślnie!</h1>
         <img src={decoration} alt="text decoration" className="register_success_decoration" />
@@ -190,6 +194,7 @@ const Register = () => {
           </Link>
         </button>
       </section>
+      )}
     </>
   );
 };
