@@ -1,6 +1,6 @@
 describe('Home Contact', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:5173/');
+    cy.visit('https://oddaj.netlify.app/');
   });
 
   it('checks if form fields are empty by default', () => {

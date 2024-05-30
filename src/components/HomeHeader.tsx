@@ -84,7 +84,7 @@ const HomeHeader = () => {
                 <Link to="/logowanie" data-cy="nav_login">Zaloguj</Link>
               </li>
               <li>
-                <Link to="/rejestracja">Załóż konto</Link>
+                <Link to="/rejestracja" data-cy="nav_register">Załóż konto</Link>
               </li>
             </ul>
           )}
