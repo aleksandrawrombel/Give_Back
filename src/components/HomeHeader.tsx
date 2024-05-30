@@ -91,7 +91,7 @@ const HomeHeader = () => {
           {loggedIn === true && (
             <ul className="nav_registration" id="nav_registration">
               <li>
-                <p className="logged_in_user_email">{`Cześć, ${loggedInUserEmail}!`}</p>
+                <p className="logged_in_user_email" data-cy="logged_in_user_email">{`Cześć, ${loggedInUserEmail}!`}</p>
               </li>
               <li>
                 <Link to="/oddaj-rzeczy">Oddaj rzeczy</Link>
