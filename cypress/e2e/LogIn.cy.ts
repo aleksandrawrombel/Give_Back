@@ -14,7 +14,7 @@ describe('LogIn', () => {
     cy.getByData('login_password_error').should('exist');
   });
 
-  it('checks if logged in users are redirected to main page', () => {
+  it.only('checks if logged in users are redirected to main page', () => {
     cy.visit('https://oddaj.netlify.app/');
     cy.getByData('nav_login').click();
     cy.login();

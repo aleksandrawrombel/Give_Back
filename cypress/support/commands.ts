@@ -40,8 +40,12 @@ Cypress.Commands.add('getByData', (attr) => {
   return cy.get(`[data-cy=${attr}]`);
 });
 
-Cypress.Commands.add('login', (email?: string, password?: string) => {
-  cy.getByData('login_email_input').type(email || 'example@example.com');
-  cy.getByData('login_password_input').type(password || 'example');
+Cypress.Commands.add('login', () => {
+
+  const email = Cypress.env('email');
+  const password = Cypress.env('password');
+
+  cy.getByData('login_email_input').type(email);
+  cy.getByData('login_password_input').type(password);
   cy.getByData('login_submit_button').click();
 });
