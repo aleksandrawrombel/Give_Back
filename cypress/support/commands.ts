@@ -39,3 +39,4 @@
 Cypress.Commands.add('getByData', (attr) => {
   return cy.get(`[data-cy=${attr}]`);
 });
+

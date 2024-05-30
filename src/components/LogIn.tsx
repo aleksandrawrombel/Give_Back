@@ -137,8 +137,9 @@ const LogIn = () => {
               required
               onChange={handleInputChange}
               style={{ borderColor: emailError ? 'tomato' : 'black' }}
+              data-cy="login_email_input"
             ></input>
-            {emailError && <span className="validation_error log_in_error">{emailError}</span>}
+            {emailError && <span className="validation_error log_in_error" data-cy="login_email_error">{emailError}</span>}
             <label className="log_in_password_label">Hasło</label>
             <input
               className="log_in_password"
@@ -148,8 +149,9 @@ const LogIn = () => {
               required
               onChange={handleInputChange}
               style={{ borderColor: passwordError ? 'tomato' : 'black' }}
+              data-cy="login_password_input"
             ></input>
-            {passwordError && <span className="validation_error log_in_error">{passwordError}</span>}
+            {passwordError && <span className="validation_error log_in_error" data-cy="login_password_error">{passwordError}</span>}
           </div>
           <div className="log_in_buttons">
             <button>
@@ -157,7 +159,7 @@ const LogIn = () => {
                 Załóż konto
               </Link>
             </button>
-            <button>Zaloguj się</button>
+            <button data-cy="login_submit_button">Zaloguj się</button>
           </div>
         </form>
       </section>
