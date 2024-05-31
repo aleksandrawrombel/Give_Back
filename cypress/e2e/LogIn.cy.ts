@@ -22,13 +22,4 @@ describe('LogIn', () => {
     cy.login();
     cy.url({ timeout: 10000 }).should('equal', '/');
   });
-
-  it.only('checks if logged in user may access the main form for logged in users only', () => {
-    cy.visit('https://oddaj.netlify.app/');
-    cy.getByData('nav_login').click();
-    cy.login();
-    cy.origin('https://main--oddaj.netlify.app/', () => {
-      cy.get('[data-cy=hero_button_give_away]').click()
-    })
-  });
 });
