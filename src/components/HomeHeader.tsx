@@ -149,7 +149,7 @@ const HomeHeader = () => {
         )}
         {loggedIn === true && (
           <section className="hero_buttons">
-            <Link to="/oddaj-rzeczy" className="hero_button">
+            <Link to="/oddaj-rzeczy" className="hero_button" data-cy="hero_button_give_away">
               Oddaj <span>rzeczy</span>
             </Link>
             <Link to="/oddaj-rzeczy" className="hero_button">
